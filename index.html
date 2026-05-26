@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>AGM للمحاماة والاستشارات القانونية</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -28,8 +28,9 @@ body.light {
   --table-head:#F3F4F6; --topbar-bg:rgba(255,255,255,0.96);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
 body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh;transition:background .3s,color .3s;}
-::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar{width:4px;height:4px;} ::-webkit-scrollbar-track{background:var(--dark);}
 ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px;}
 
 /* ──── LOGIN ──── */
@@ -92,11 +93,11 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#07090D;
   border:none;padding:9px 20px;border-radius:9px;font-family:'Cairo',sans-serif;
   font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;
-  display:inline-flex;align-items:center;gap:7px;}
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
 .btn-gold:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(201,168,76,.35);}
 .btn-outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.35);
   padding:8px 18px;border-radius:9px;font-family:'Cairo',sans-serif;font-weight:600;
-  font-size:13px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:7px;}
+  font-size:13px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
 .btn-outline:hover{background:rgba(201,168,76,.08);border-color:var(--gold);}
 .btn-danger{background:rgba(239,68,68,.1);color:#EF4444;border:1px solid rgba(239,68,68,.25);
   padding:6px 12px;border-radius:7px;font-family:'Cairo',sans-serif;font-size:12px;
@@ -110,6 +111,9 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 .btn-edit{background:rgba(59,130,246,.1);color:#3B82F6;border:1px solid rgba(59,130,246,.25);
   padding:5px 10px;border-radius:6px;font-family:'Cairo';font-size:11px;cursor:pointer;transition:all .2s;}
 .btn-edit:hover{background:rgba(59,130,246,.2);}
+.btn-success{background:rgba(16,185,129,.12);color:#10B981;border:1px solid rgba(16,185,129,.3);
+  padding:8px 18px;border-radius:9px;font-family:'Cairo',sans-serif;font-weight:600;
+  font-size:13px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:7px;}
 
 /* ──── BADGES ──── */
 .badge{padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;}
@@ -137,6 +141,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
   font-size:13px;outline:none;transition:border .2s;}
 .form-input:focus{border-color:rgba(201,168,76,.45);box-shadow:0 0 0 3px rgba(201,168,76,.07);}
 .form-input::placeholder{color:var(--text-muted);}
+select.form-input option{background:var(--dark2);color:var(--text);}
 .form-label{display:block;font-size:11px;font-weight:700;color:var(--text-muted);
   margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
 
@@ -157,7 +162,6 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
 .fade-in{animation:fadeIn .3s ease forwards;}
 .pulse{animation:pulse 2s infinite;}
 .spin{animation:spin .6s linear infinite;}
@@ -206,7 +210,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 .task-card{background:var(--dark3);border-radius:10px;padding:12px;margin-bottom:8px;border-right:3px solid;}
 
 /* ──── TOAST ──── */
-#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(120px);
   background:var(--dark2);border:1px solid var(--glass-border);border-radius:12px;
   padding:11px 20px;font-size:13px;font-weight:600;z-index:9000;transition:transform .3s ease;
   display:flex;align-items:center;gap:8px;min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,.5);}
@@ -214,7 +218,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 /* ──── ALERT BANNER ──── */
 .alert-banner{background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(245,158,11,.08));
   border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:12px 16px;
-  display:flex;align-items:center;gap:12px;margin-bottom:12px;animation:pulse 2s infinite;}
+  display:flex;align-items:center;gap:12px;margin-bottom:12px;}
 .urgent-dot{width:10px;height:10px;background:var(--danger);border-radius:50%;
   animation:pulse 1.5s infinite;flex-shrink:0;}
 .loading-spinner{width:18px;height:18px;border:2px solid rgba(201,168,76,.3);
@@ -225,7 +229,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 .section-title{font-size:20px;font-weight:900;}
 .section-sub{color:var(--text-muted);font-size:12px;margin-top:2px;}
 
-/* ──── PERSON CARD - Premium ──── */
+/* ──── PERSON CARD ──── */
 .person-card{background:var(--card-bg);border:1px solid var(--glass-border);border-radius:18px;
   overflow:hidden;transition:all .3s ease;position:relative;}
 .person-card:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,0,0,.2);
@@ -255,28 +259,12 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
   display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:18px;color:#fff;}
 .photo-upload-wrap:hover .overlay{opacity:1;}
 
-/* ═══════════════════════════════════════════
-   PREMIUM CASE CARDS (new)
-═══════════════════════════════════════════ */
-.case-card{
-  background:var(--card-bg);
-  border:1px solid var(--glass-border);
-  border-radius:20px;
-  overflow:hidden;
-  transition:all .35s cubic-bezier(.25,.8,.25,1);
-  position:relative;
-  display:flex;
-  flex-direction:column;
-}
-.case-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;
-  background:var(--case-accent,linear-gradient(90deg,var(--gold),var(--gold-dark)));
-}
-.case-card:hover{
-  transform:translateY(-4px) scale(1.01);
-  box-shadow:0 24px 60px rgba(0,0,0,.25);
-  border-color:rgba(201,168,76,.35);
-}
+/* ══ CASE CARDS ══ */
+.case-card{background:var(--card-bg);border:1px solid var(--glass-border);border-radius:20px;
+  overflow:hidden;transition:all .35s cubic-bezier(.25,.8,.25,1);position:relative;display:flex;flex-direction:column;}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--case-accent,linear-gradient(90deg,var(--gold),var(--gold-dark)));}
+.case-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 24px 60px rgba(0,0,0,.25);border-color:rgba(201,168,76,.35);}
 .case-card .cc-top{padding:18px 18px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
 .case-card .cc-num{font-size:22px;font-weight:900;line-height:1;}
 .case-card .cc-body{padding:0 18px 14px;flex:1;}
@@ -291,36 +279,28 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
 .cc-progress{height:5px;border-radius:4px;background:var(--dark3);margin:10px 18px 0;overflow:hidden;}
 .cc-progress-bar{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--gold-dark));transition:width .6s ease;}
 
-/* ──── MOBILE BOTTOM NAV ──── */
+/* ══ STORAGE INDICATOR ══ */
+.storage-indicator{display:flex;align-items:center;gap:8px;padding:10px 14px;
+  background:rgba(201,168,76,.06);border-radius:10px;border:1px solid rgba(201,168,76,.15);margin-bottom:12px;}
+.storage-bar{flex:1;height:6px;background:var(--dark3);border-radius:3px;overflow:hidden;}
+.storage-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--success),var(--gold));transition:width .5s;}
+
+/* ── MOBILE BOTTOM NAV ── */
 .mobile-bottom-nav{
-  display:none;
-  position:fixed;bottom:0;left:0;right:0;z-index:95;
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:95;
   background:var(--topbar-bg);backdrop-filter:blur(20px);
   border-top:1px solid var(--glass-border);
   padding:6px 0 env(safe-area-inset-bottom,6px);
-  grid-template-columns:repeat(5,1fr);
-  gap:0;
+  grid-template-columns:repeat(5,1fr);gap:0;
 }
-.mob-nav-item{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+.mob-nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:2px;padding:6px 4px;cursor:pointer;transition:all .2s;
-  font-size:9px;font-weight:700;color:var(--text-muted);
-}
+  font-size:9px;font-weight:700;color:var(--text-muted);}
 .mob-nav-item i{font-size:18px;transition:all .2s;}
 .mob-nav-item.active{color:var(--gold);}
 .mob-nav-item.active i{transform:scale(1.15);}
-.mob-more-btn{
-  display:none;position:fixed;bottom:70px;right:16px;z-index:96;
-  width:50px;height:50px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-  border:none;color:#07090D;font-size:20px;cursor:pointer;
-  box-shadow:0 6px 24px rgba(201,168,76,.4);
-  align-items:center;justify-content:center;
-  transition:all .3s;
-}
-.mob-more-btn:hover{transform:scale(1.1);}
 
-/* ──── MOBILE MENU DRAWER ──── */
+/* ── MOBILE DRAWER ── */
 .mobile-menu-drawer{
   position:fixed;bottom:0;left:0;right:0;z-index:150;
   background:var(--dark2);border-top:1px solid var(--glass-border);
@@ -335,71 +315,83 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overf
   background:var(--dark3);border-radius:14px;cursor:pointer;transition:all .2s;
   border:1px solid transparent;font-size:10px;font-weight:700;color:var(--text-muted);}
 .drawer-item i{font-size:20px;color:var(--gold);}
-.drawer-item:active,.drawer-item.active{border-color:rgba(201,168,76,.3);
-  background:rgba(201,168,76,.08);color:var(--gold);}
+.drawer-item:active,.drawer-item.active{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.08);color:var(--gold);}
 .drawer-overlay{display:none;position:fixed;inset:0;z-index:149;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
 .drawer-overlay.open{display:block;}
 
-/* ──── PRINT ──── */
+/* ── PRINT ── */
 @media print{
-  #sidebar,#main .topbar,.no-print,.mobile-bottom-nav,.mob-more-btn{display:none !important;}
-  #main{margin-right:0;}
-  body{background:#fff;color:#000;}
+  #sidebar,#main .topbar,.no-print,.mobile-bottom-nav{display:none !important;}
+  #main{margin-right:0;}body{background:#fff;color:#000;}
 }
 
-/* ──── LIGHT MODE SPECIFICS ──── */
+/* ── LIGHT MODE ── */
 body.light .ai-bubble{background:linear-gradient(135deg,rgba(59,130,246,.07),rgba(201,168,76,.04));}
-body.light .person-card .card-header{background:linear-gradient(135deg,#8B6914,#C9A84C);}
 body.light .task-card{background:var(--dark3);}
 body.light .session-log-item{background:var(--dark3);}
 
-/* ══════════════════ MOBILE ══════════════════ */
+/* ══════ MOBILE ══════ */
 @media(max-width:768px){
   :root{--sidebar-w:280px;}
   #sidebar{transform:translateX(100%);}
   #sidebar.open{transform:translateX(0);}
   #main{margin-right:0;padding-bottom:80px;}
   .topbar{padding:10px 14px;}
-  #contentArea{padding:14px 12px !important;}
-  .section-header{flex-direction:column;align-items:flex-start;}
-  .modal-box{padding:18px;margin:8px;}
+  .topbar .search-wrap{display:none;}
+  #contentArea{padding:12px 10px !important;}
+  .section-header{flex-direction:column;align-items:flex-start;gap:8px;}
+  .section-header>div:last-child{width:100%;display:flex;flex-wrap:wrap;gap:6px;}
+  .section-header .btn-gold,.section-header .btn-outline{flex:1;justify-content:center;min-width:120px;}
+  .modal-box{padding:16px;margin:6px;border-radius:14px;max-height:95vh;}
+  .modal-box .grid{grid-template-columns:1fr !important;}
   .mobile-bottom-nav{display:grid;}
-  .mob-more-btn{display:flex;}
 
-  /* hide desktop sidebar toggle on mobile - handled by bottom nav */
-  #desktopMenuToggle{display:none;}
-
-  /* stat cards scroll row on mobile */
-  .stats-row{display:flex;overflow-x:auto;gap:10px;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+  /* stats horizontal scroll */
+  .stats-row{display:flex;overflow-x:auto;gap:10px;padding-bottom:8px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
   .stats-row::-webkit-scrollbar{height:0;}
-  .stats-row .stat-card{min-width:140px;flex-shrink:0;}
+  .stats-row .stat-card{min-width:150px;flex-shrink:0;scroll-snap-align:start;}
 
-  /* case cards: 1 column */
+  /* case cards 1 col */
   #caseCardsGrid{grid-template-columns:1fr !important;}
+  .case-card .cc-top{padding:14px 14px 10px;}
+  .case-card .cc-body{padding:0 14px 12px;}
+  .case-card .cc-footer{padding:8px 14px 12px;}
+  .case-card .cc-num{font-size:18px;}
 
-  /* hide table on mobile – use cards instead */
-  .mobile-hide{display:none;}
+  /* person grids */
+  #clientsGrid,#staffGrid{grid-template-columns:repeat(2,1fr) !important;gap:10px !important;}
+  .person-card .card-body{padding:34px 10px 12px;}
+  .person-card .card-avatar{width:56px;height:56px;font-size:20px;bottom:-28px;}
+  .person-card .card-header{height:58px;}
+  .person-card .card-body .card-actions{flex-direction:row;}
 
-  /* 2-col person grid on mobile */
-  #clientsGrid,#staffGrid{grid-template-columns:repeat(2,1fr) !important;}
-  .person-card .card-body{padding:36px 12px 12px;}
-  .person-card .card-avatar{width:56px;height:56px;font-size:22px;bottom:-28px;}
-  .person-card .card-header{height:60px;}
-
-  /* task cols: stack */
+  /* tasks stack */
   #tasksGrid{grid-template-columns:1fr !important;}
-
-  /* finance grid */
   #financeStatsGrid{grid-template-columns:1fr !important;}
 
   .section-title{font-size:17px;}
-  .search-wrap{width:100% !important;}
+  .data-table{font-size:11px;}
+  .data-table th,.data-table td{padding:8px 10px;}
+
+  /* calendar */
+  #page-sessions .grid{grid-template-columns:1fr !important;}
+  #page-sessionHistory .grid{grid-template-columns:1fr !important;}
+
+  /* payroll/finance stats */
+  #page-payroll .grid,#page-finance .grid{grid-template-columns:1fr !important;}
+
+  /* settings grid */
+  #page-settings .grid{grid-template-columns:1fr !important;}
+
+  /* attendance summary */
+  #attendSummary{grid-template-columns:repeat(2,1fr) !important;}
 }
 
 @media(min-width:769px){
   #sidebar{transform:translateX(0) !important;}
-  .mobile-bottom-nav,.mob-more-btn{display:none !important;}
+  .mobile-bottom-nav{display:none !important;}
   .drawer-overlay,.mobile-menu-drawer{display:none !important;}
+  #toast{bottom:24px;}
 }
 </style>
 </head>
@@ -421,6 +413,10 @@ body.light .session-log-item{background:var(--dark3);}
       <div><label class="form-label">كلمة المرور</label>
         <div class="search-wrap"><input class="form-input" type="password" id="loginPass" placeholder="أدخل كلمة المرور" onkeypress="if(event.key==='Enter')doLogin()"><span class="search-icon"><i class="fas fa-lock"></i></span></div>
       </div>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--text-muted);">
+        <input type="checkbox" id="rememberMe" style="accent-color:var(--gold);width:14px;height:14px;">
+        تذكرني (لا تطلب تسجيل الدخول مرة أخرى)
+      </label>
       <button class="btn-gold" style="width:100%;justify-content:center;padding:12px;font-size:15px;" onclick="doLogin()"><i class="fas fa-sign-in-alt"></i> دخول النظام</button>
     </div>
     <div id="loginError" style="display:none;margin-top:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:10px;text-align:center;font-size:12px;color:#EF4444;"><i class="fas fa-exclamation-circle"></i> بيانات الدخول غير صحيحة</div>
@@ -428,7 +424,7 @@ body.light .session-log-item{background:var(--dark3);}
   </div>
 </div>
 
-<!-- SIDEBAR OVERLAY (mobile) -->
+<!-- SIDEBAR OVERLAY -->
 <div id="sidebarOverlay" onclick="closeSidebar()"></div>
 
 <!-- SIDEBAR -->
@@ -463,9 +459,9 @@ body.light .session-log-item{background:var(--dark3);}
   </div>
   <div class="sidebar-profile">
     <div style="display:flex;align-items:center;gap:10px;">
-      <div class="avatar" style="width:36px;height:36px;font-size:14px;">م</div>
+      <div class="avatar" style="width:36px;height:36px;font-size:14px;" id="sidebarAvatar">م</div>
       <div>
-        <div style="font-size:12px;font-weight:700;">مصطفى أباظة</div>
+        <div style="font-size:12px;font-weight:700;" id="sidebarName">مصطفى أباظة</div>
         <div style="font-size:10px;color:var(--gold);font-weight:600;">المدير العام</div>
       </div>
       <div style="margin-right:auto;width:7px;height:7px;background:var(--success);border-radius:50%;box-shadow:0 0 6px var(--success);"></div>
@@ -477,7 +473,7 @@ body.light .session-log-item{background:var(--dark3);}
 <div id="main">
   <div class="topbar">
     <div style="display:flex;align-items:center;gap:12px;">
-      <button onclick="toggleSidebar()" id="desktopMenuToggle" style="background:none;border:none;color:var(--text);font-size:18px;cursor:pointer;display:none;"><i class="fas fa-bars"></i></button>
+      <button onclick="toggleSidebar()" style="background:none;border:none;color:var(--text);font-size:18px;cursor:pointer;padding:4px;"><i class="fas fa-bars"></i></button>
       <div class="search-wrap" style="width:220px;">
         <input class="form-input" type="text" placeholder="بحث سريع..." id="globalSearch" oninput="globalSearchFn()" style="padding:8px 36px 8px 12px;font-size:12px;">
         <span class="search-icon"><i class="fas fa-search"></i></span>
@@ -498,11 +494,10 @@ body.light .session-log-item{background:var(--dark3);}
           <div id="notifList" style="max-height:320px;overflow-y:auto;"></div>
         </div>
       </div>
-      <button onclick="toggleTheme()" id="themeBtn" style="background:rgba(201,168,76,.07);border:1px solid var(--glass-border);border-radius:9px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);font-size:14px;" title="تبديل المظهر">
+      <button onclick="toggleTheme()" style="background:rgba(201,168,76,.07);border:1px solid var(--glass-border);border-radius:9px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);font-size:14px;">
         <i class="fas fa-sun" id="themeIcon"></i>
       </button>
-      <button onclick="doLogout()" style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:7px 14px;color:#EF4444;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;"><i class="fas fa-sign-out-alt"></i></button>
-      <div class="avatar" style="cursor:pointer;box-shadow:0 0 0 2px rgba(201,168,76,.25);">م</div>
+      <button onclick="doLogout()" style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:9px;padding:7px 14px;color:#EF4444;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;" title="تسجيل الخروج"><i class="fas fa-sign-out-alt"></i></button>
     </div>
   </div>
 
@@ -540,7 +535,7 @@ body.light .session-log-item{background:var(--dark3);}
         <div class="stat-card" style="--accent:linear-gradient(90deg,#8B5CF6,#6D28D9);">
           <div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">إجمالي الإيرادات</div>
           <div style="font-size:18px;font-weight:900;color:#8B5CF6;" id="stat-revenue">0</div>
-          <div style="font-size:11px;color:var(--success);margin-top:4px;"><i class="fas fa-coins"></i> ريال</div>
+          <div style="font-size:11px;color:var(--success);margin-top:4px;"><i class="fas fa-coins"></i> ر.س</div>
         </div>
         <div class="stat-card" style="--accent:linear-gradient(90deg,#EF4444,#DC2626);">
           <div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">عاجلة / متأخرة</div>
@@ -592,7 +587,6 @@ body.light .session-log-item{background:var(--dark3);}
             <option value="عاجلة">عاجلة</option>
             <option value="مؤرشفة">مؤرشفة</option>
           </select>
-          <!-- View toggle -->
           <div style="display:flex;gap:4px;background:var(--dark3);border-radius:8px;padding:3px;">
             <button id="viewGrid" onclick="setCaseView('grid')" style="padding:5px 10px;border-radius:6px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#07090D;cursor:pointer;font-size:12px;"><i class="fas fa-th-large"></i></button>
             <button id="viewTable" onclick="setCaseView('table')" style="padding:5px 10px;border-radius:6px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;font-size:12px;"><i class="fas fa-list"></i></button>
@@ -600,11 +594,7 @@ body.light .session-log-item{background:var(--dark3);}
           <button class="btn-gold" onclick="openModal('addCaseModal')"><i class="fas fa-plus"></i> إضافة</button>
         </div>
       </div>
-
-      <!-- GRID VIEW -->
       <div id="caseCardsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;"></div>
-
-      <!-- TABLE VIEW -->
       <div id="caseTableWrap" style="display:none;" class="glass-card" style="border-radius:14px;overflow:hidden;">
         <div style="overflow-x:auto;">
           <table class="data-table">
@@ -616,8 +606,8 @@ body.light .session-log-item{background:var(--dark3);}
           </table>
         </div>
       </div>
-      <div id="casesEmpty" style="text-align:center;padding:50px;color:var(--text-muted);display:none;">
-        <i class="fas fa-gavel" style="font-size:40px;margin-bottom:12px;opacity:.2;"></i>
+      <div id="casesEmpty" style="text-align:center;padding:60px;color:var(--text-muted);display:none;">
+        <i class="fas fa-gavel" style="font-size:40px;margin-bottom:12px;opacity:.2;display:block;"></i>
         <p>لا توجد قضايا</p>
         <button class="btn-gold" style="margin-top:12px;" onclick="openModal('addCaseModal')"><i class="fas fa-plus"></i> إضافة قضية</button>
       </div>
@@ -630,7 +620,7 @@ body.light .session-log-item{background:var(--dark3);}
         <button class="btn-gold" onclick="openModal('addClientModal')"><i class="fas fa-user-plus"></i> موكل جديد</button>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;" id="clientsGrid"></div>
-      <div id="clientsEmpty" style="text-align:center;padding:60px;color:var(--text-muted);display:none;"><i class="fas fa-users" style="font-size:40px;margin-bottom:12px;opacity:.2;"></i><p>لا يوجد موكلون مسجلون</p></div>
+      <div id="clientsEmpty" style="text-align:center;padding:60px;color:var(--text-muted);display:none;"><i class="fas fa-users" style="font-size:40px;margin-bottom:12px;opacity:.2;display:block;"></i><p>لا يوجد موكلون مسجلون</p></div>
     </div>
 
     <!-- STAFF -->
@@ -640,7 +630,7 @@ body.light .session-log-item{background:var(--dark3);}
         <button class="btn-gold" onclick="openModal('addStaffModal')"><i class="fas fa-user-plus"></i> إضافة موظف</button>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;" id="staffGrid"></div>
-      <div id="staffEmpty" style="text-align:center;padding:60px;color:var(--text-muted);display:none;"><i class="fas fa-user-tie" style="font-size:40px;margin-bottom:12px;opacity:.2;"></i><p>لا يوجد موظفون مسجلون</p></div>
+      <div id="staffEmpty" style="text-align:center;padding:60px;color:var(--text-muted);display:none;"><i class="fas fa-user-tie" style="font-size:40px;margin-bottom:12px;opacity:.2;display:block;"></i><p>لا يوجد موظفون مسجلون</p></div>
     </div>
 
     <!-- ATTENDANCE -->
@@ -654,10 +644,12 @@ body.light .session-log-item{background:var(--dark3);}
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;" id="attendSummary"></div>
       <div class="glass-card" style="border-radius:14px;overflow:hidden;">
-        <table class="data-table">
-          <thead><tr><th>الموظف</th><th>الوظيفة</th><th>التاريخ</th><th>وقت الحضور</th><th>وقت الانصراف</th><th>الساعات</th><th>الحالة</th><th>ملاحظة</th><th>إجراءات</th></tr></thead>
-          <tbody id="attendBody"></tbody>
-        </table>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead><tr><th>الموظف</th><th>الوظيفة</th><th>التاريخ</th><th>وقت الحضور</th><th>وقت الانصراف</th><th>الساعات</th><th>الحالة</th><th>ملاحظة</th><th>إجراءات</th></tr></thead>
+            <tbody id="attendBody"></tbody>
+          </table>
+        </div>
         <div id="attendEmpty" style="text-align:center;padding:40px;color:var(--text-muted);">لا توجد سجلات حضور لهذا اليوم</div>
       </div>
     </div>
@@ -755,8 +747,10 @@ body.light .session-log-item{background:var(--dark3);}
         </div>
       </div>
       <div class="glass-card" style="border-radius:14px;overflow:hidden;">
-        <table class="data-table"><thead><tr><th>التاريخ</th><th>الموكل/القضية</th><th>البيان</th><th>النوع</th><th>المبلغ</th><th>الحالة</th><th>حذف</th></tr></thead>
-        <tbody id="paymentsBody"></tbody></table>
+        <div style="overflow-x:auto;">
+          <table class="data-table"><thead><tr><th>التاريخ</th><th>الموكل/القضية</th><th>البيان</th><th>النوع</th><th>المبلغ</th><th>الحالة</th><th>حذف</th></tr></thead>
+          <tbody id="paymentsBody"></tbody></table>
+        </div>
         <div id="paymentsEmpty" style="text-align:center;padding:40px;color:var(--text-muted);display:none;">لا توجد معاملات مالية</div>
       </div>
     </div>
@@ -782,8 +776,10 @@ body.light .session-log-item{background:var(--dark3);}
         </div>
       </div>
       <div class="glass-card" style="border-radius:14px;overflow:hidden;">
-        <table class="data-table"><thead><tr><th>الشهر</th><th>الموظف</th><th>الوظيفة</th><th>الراتب الأساسي</th><th>المكافأة</th><th>الخصم</th><th>الصافي</th><th>الحالة</th><th>ملاحظة</th><th>حذف</th></tr></thead>
-        <tbody id="salaryBody"></tbody></table>
+        <div style="overflow-x:auto;">
+          <table class="data-table"><thead><tr><th>الشهر</th><th>الموظف</th><th>الوظيفة</th><th>الراتب الأساسي</th><th>المكافأة</th><th>الخصم</th><th>الصافي</th><th>الحالة</th><th>ملاحظة</th><th>حذف</th></tr></thead>
+          <tbody id="salaryBody"></tbody></table>
+        </div>
         <div id="salaryEmpty" style="text-align:center;padding:40px;color:var(--text-muted);display:none;">لا توجد سجلات رواتب</div>
       </div>
     </div>
@@ -796,7 +792,7 @@ body.light .session-log-item{background:var(--dark3);}
       </div>
       <div class="upload-area" onclick="document.getElementById('fileInput').click()" style="margin-bottom:18px;">
         <input type="file" id="fileInput" style="display:none" multiple onchange="handleFileUpload(event)">
-        <i class="fas fa-cloud-upload-alt" style="font-size:32px;color:var(--gold);margin-bottom:10px;"></i>
+        <i class="fas fa-cloud-upload-alt" style="font-size:32px;color:var(--gold);margin-bottom:10px;display:block;"></i>
         <p style="font-size:13px;font-weight:600;color:var(--gold);">اسحب الملفات أو انقر للرفع</p>
         <p style="font-size:11px;color:var(--text-muted);margin-top:3px;">PDF, DOC, JPG, PNG مدعومة</p>
       </div>
@@ -810,13 +806,10 @@ body.light .session-log-item{background:var(--dark3);}
         <h1 class="section-title gold-text">المساعد الذكي</h1>
         <p class="section-sub">مساعدك القانوني الذكي - مؤسسة AGM</p>
       </div>
-      <div class="glass-card" style="border-radius:14px;padding:0;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 210px);">
+      <div class="glass-card" style="border-radius:14px;padding:0;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 210px);min-height:400px;">
         <div style="padding:12px 18px;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;gap:10px;background:rgba(201,168,76,.03);">
           <div style="width:34px;height:34px;background:linear-gradient(135deg,#1A2550,#1E3A8A);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;">🤖</div>
-          <div>
-            <div style="font-size:13px;font-weight:700;">AGM Legal AI</div>
-            <div style="font-size:10px;color:var(--success);">● متصل</div>
-          </div>
+          <div><div style="font-size:13px;font-weight:700;">AGM Legal AI</div><div style="font-size:10px;color:var(--success);">● متصل</div></div>
         </div>
         <div id="aiChat" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;gap:10px;align-items:flex-start;">
@@ -841,19 +834,41 @@ body.light .session-log-item{background:var(--dark3);}
             <div><label class="form-label">اسم المؤسسة</label><input class="form-input" id="officeName" value="AGM للمحاماة والاستشارات القانونية"></div>
             <div><label class="form-label">المدير العام</label><input class="form-input" id="officeManager" value="مصطفى محمد أباظة"></div>
             <div><label class="form-label">العنوان</label><input class="form-input" id="officeAddress" placeholder="العنوان"></div>
-            <div><label class="form-label">الهاتف</label><input class="form-input" id="officePhone" placeholder="+966 xx xxx xxxx"></div>
+            <div><label class="form-label">الهاتف</label><input class="form-input" id="officePhone" placeholder="+20 xx xxx xxxx"></div>
             <div><label class="form-label">البريد الإلكتروني</label><input class="form-input" id="officeEmail" placeholder="info@agm.com"></div>
             <button class="btn-gold" onclick="saveSettings()"><i class="fas fa-save"></i> حفظ الإعدادات</button>
           </div>
         </div>
         <div class="glass-card" style="border-radius:14px;padding:22px;">
-          <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;"><i class="fas fa-shield-alt" style="color:var(--gold);margin-left:7px;"></i>النسخ الاحتياطي</h3>
-          <div style="display:grid;gap:10px;">
-            <button class="btn-outline" onclick="backupData()"><i class="fas fa-download"></i> تحميل نسخة احتياطية (JSON)</button>
-            <button class="btn-outline" onclick="exportExcel()"><i class="fas fa-file-excel"></i> تصدير Excel/CSV</button>
-            <button class="btn-outline" onclick="document.getElementById('restoreFile').click()"><i class="fas fa-upload"></i> استعادة البيانات</button>
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;"><i class="fas fa-shield-alt" style="color:var(--gold);margin-left:7px;"></i>إدارة البيانات</h3>
+
+          <!-- Storage indicator -->
+          <div class="storage-indicator" id="storageIndicator">
+            <i class="fas fa-database" style="color:var(--gold);font-size:13px;"></i>
+            <div style="flex:1;">
+              <div style="font-size:10px;font-weight:700;margin-bottom:4px;">مساحة التخزين المحلي</div>
+              <div class="storage-bar"><div class="storage-bar-fill" id="storageBarFill" style="width:0%"></div></div>
+            </div>
+            <span id="storageUsed" style="font-size:11px;font-weight:700;color:var(--gold);">0 KB</span>
+          </div>
+
+          <!-- تخزين الجهاز -->
+          <div style="background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:14px;margin-bottom:14px;">
+            <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px;"><i class="fas fa-hdd" style="margin-left:6px;"></i>حفظ على جهازك (ملف data.json)</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">احفظ بياناتك كملف JSON على جهازك لا يضيع عند مسح المتصفح</div>
+            <div style="display:grid;gap:8px;">
+              <button class="btn-gold" onclick="saveToFile()" style="justify-content:center;"><i class="fas fa-download"></i> تحميل ملف البيانات (data.json)</button>
+              <button class="btn-outline" onclick="document.getElementById('loadDataFile').click()" style="justify-content:center;"><i class="fas fa-upload"></i> استيراد ملف بيانات</button>
+              <input type="file" id="loadDataFile" style="display:none;" accept=".json" onchange="loadFromFile(event)">
+            </div>
+          </div>
+
+          <div style="display:grid;gap:8px;">
+            <button class="btn-outline" onclick="backupData()" style="justify-content:center;"><i class="fas fa-download"></i> نسخة احتياطية (JSON)</button>
+            <button class="btn-outline" onclick="exportExcel()" style="justify-content:center;"><i class="fas fa-file-excel"></i> تصدير CSV</button>
+            <button class="btn-outline" onclick="document.getElementById('restoreFile').click()" style="justify-content:center;"><i class="fas fa-upload"></i> استعادة نسخة احتياطية</button>
             <input type="file" id="restoreFile" style="display:none" accept=".json" onchange="restoreData(event)">
-            <button class="btn-danger" onclick="if(confirm('مسح جميع البيانات نهائياً؟'))clearAllData()"><i class="fas fa-trash"></i> مسح جميع البيانات</button>
+            <button class="btn-danger" style="justify-content:center;" onclick="if(confirm('مسح جميع البيانات نهائياً؟'))clearAllData()"><i class="fas fa-trash"></i> مسح جميع البيانات</button>
           </div>
           <hr style="border:none;border-top:1px solid var(--glass-border);margin:14px 0;">
           <h4 style="font-size:12px;font-weight:700;margin-bottom:10px;">سجل الأنشطة</h4>
@@ -862,8 +877,8 @@ body.light .session-log-item{background:var(--dark3);}
       </div>
     </div>
 
-  </div><!-- /contentArea -->
-</div><!-- /main -->
+  </div>
+</div>
 
 <!-- MOBILE BOTTOM NAV -->
 <nav class="mobile-bottom-nav" id="mobileBottomNav">
@@ -887,10 +902,8 @@ body.light .session-log-item{background:var(--dark3);}
   </div>
 </nav>
 
-<!-- MOBILE DRAWER OVERLAY -->
+<!-- MOBILE DRAWER -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
-
-<!-- MOBILE MENU DRAWER -->
 <div class="mobile-menu-drawer" id="mobileDrawer">
   <div class="drawer-handle"></div>
   <div style="font-size:13px;font-weight:800;color:var(--gold);margin-bottom:14px;text-align:center;">القائمة الرئيسية</div>
@@ -903,7 +916,7 @@ body.light .session-log-item{background:var(--dark3);}
     <div class="drawer-item" onclick="showPage('finance');closeDrawer()"><i class="fas fa-coins"></i>المالية</div>
     <div class="drawer-item" onclick="showPage('payroll');closeDrawer()"><i class="fas fa-money-bill-wave"></i>الرواتب</div>
     <div class="drawer-item" onclick="showPage('documents');closeDrawer()"><i class="fas fa-folder-open"></i>المستندات</div>
-    <div class="drawer-item" onclick="showPage('ai');closeDrawer()"><i class="fas fa-robot"></i>المساعد الذكي</div>
+    <div class="drawer-item" onclick="showPage('ai');closeDrawer()"><i class="fas fa-robot"></i>المساعد</div>
     <div class="drawer-item" onclick="showPage('settings');closeDrawer()"><i class="fas fa-cog"></i>الإعدادات</div>
     <div class="drawer-item" onclick="toggleTheme();closeDrawer()"><i class="fas fa-moon" id="drawerThemeIcon"></i>المظهر</div>
     <div class="drawer-item" onclick="doLogout()" style="color:var(--danger);"><i class="fas fa-sign-out-alt" style="color:var(--danger);"></i>خروج</div>
@@ -925,7 +938,7 @@ body.light .session-log-item{background:var(--dark3);}
   </div>
 </div>
 
-<!-- ════════════════ MODALS ════════════════ -->
+<!-- ════ MODALS ════ -->
 
 <!-- Add/Edit Case -->
 <div class="modal-overlay" id="addCaseModal">
@@ -935,7 +948,7 @@ body.light .session-log-item{background:var(--dark3);}
       <button onclick="closeModal('addCaseModal')" style="background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;">×</button>
     </div>
     <input type="hidden" id="editCaseId">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="grid">
       <div><label class="form-label">رقم القضية</label><input class="form-input" id="caseNum" placeholder="2024-001"></div>
       <div><label class="form-label">نوع القضية</label><select class="form-input" id="caseType"><option>مدني</option><option>جنائي</option><option>تجاري</option><option>عمالي</option><option>أسري</option><option>عقاري</option><option>إداري</option></select></div>
       <div><label class="form-label">الموكل</label><select class="form-input" id="caseClient"><option value="">-- اختر موكل --</option></select></div>
@@ -972,7 +985,7 @@ body.light .session-log-item{background:var(--dark3);}
       <input type="hidden" id="clientPhotoData">
       <div style="font-size:10px;color:var(--text-muted);margin-top:5px;">انقر لرفع صورة</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="grid">
       <div><label class="form-label">الاسم الكامل</label><input class="form-input" id="clientName" placeholder="الاسم"></div>
       <div><label class="form-label">رقم الهاتف (واتساب)</label><input class="form-input" id="clientPhone" placeholder="+201234567890"></div>
       <div><label class="form-label">رقم الهوية</label><input class="form-input" id="clientID" placeholder="1xxxxxxxxx"></div>
@@ -1002,9 +1015,8 @@ body.light .session-log-item{background:var(--dark3);}
         <input type="file" id="staffPhotoInput" accept="image/*" onchange="previewPhoto(event,'staffPhotoPreview','staffPhotoData')">
       </div>
       <input type="hidden" id="staffPhotoData">
-      <div style="font-size:10px;color:var(--text-muted);margin-top:5px;">انقر لرفع صورة</div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="grid">
       <div><label class="form-label">الاسم الكامل</label><input class="form-input" id="staffName" placeholder="اسم الموظف"></div>
       <div><label class="form-label">الوظيفة</label><select class="form-input" id="staffRole"><option>محامي</option><option>محامي متدرب</option><option>مستشار قانوني</option><option>موظف إداري</option><option>سكرتير</option><option>محاسب</option><option>قهوجي</option><option>حارس أمن</option><option>أخرى</option></select></div>
       <div><label class="form-label">التخصص</label><select class="form-input" id="staffSpec"><option>قانون مدني</option><option>قانون جنائي</option><option>قانون تجاري</option><option>قانون عمالي</option><option>قانون أسري</option><option>قانون عقاري</option><option>إداري</option><option>غير محدد</option></select></div>
@@ -1013,7 +1025,7 @@ body.light .session-log-item{background:var(--dark3);}
       <div><label class="form-label">البريد الإلكتروني</label><input class="form-input" id="staffEmail" type="email" placeholder="email@agm.com"></div>
       <div><label class="form-label">الراتب الأساسي (ر.س)</label><input class="form-input" id="staffSalary" type="number" placeholder="0"></div>
       <div><label class="form-label">تاريخ التعيين</label><input class="form-input" id="staffJoinDate" type="date"></div>
-      <div style="grid-column:span 2;"><label class="form-label">ملاحظات</label><textarea class="form-input" id="staffNotes" rows="2" placeholder="ملاحظات الموظف..."></textarea></div>
+      <div style="grid-column:span 2;"><label class="form-label">ملاحظات</label><textarea class="form-input" id="staffNotes" rows="2" placeholder="ملاحظات..."></textarea></div>
     </div>
     <div style="display:flex;gap:8px;margin-top:18px;justify-content:flex-end;">
       <button class="btn-outline" onclick="closeModal('addStaffModal')">إلغاء</button>
@@ -1054,7 +1066,7 @@ body.light .session-log-item{background:var(--dark3);}
       <h2 class="gold-text" style="font-size:17px;font-weight:800;">إضافة جلسة</h2>
       <button onclick="closeModal('addSessionModal')" style="background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;">×</button>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="grid">
       <div><label class="form-label">القضية</label><select class="form-input" id="sessionCase"></select></div>
       <div><label class="form-label">التاريخ</label><input class="form-input" id="sessionDate" type="date"></div>
       <div><label class="form-label">الوقت</label><input class="form-input" id="sessionTime" type="time"></div>
@@ -1078,7 +1090,7 @@ body.light .session-log-item{background:var(--dark3);}
     <input type="hidden" id="editSessionLogId">
     <div style="display:grid;gap:12px;">
       <div><label class="form-label">القضية</label><select class="form-input" id="sessionLogCase"></select></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="grid">
         <div><label class="form-label">تاريخ الجلسة</label><input class="form-input" id="sessionLogDate" type="date"></div>
         <div><label class="form-label">المحكمة</label><input class="form-input" id="sessionLogCourt" placeholder="اسم المحكمة"></div>
       </div>
@@ -1218,7 +1230,7 @@ body.light .session-log-item{background:var(--dark3);}
     <div style="display:grid;gap:12px;">
       <div><label class="form-label">المستلم</label><input class="form-input" id="waRecipient" readonly></div>
       <div><label class="form-label">رقم الهاتف</label><input class="form-input" id="waPhone" placeholder="+201234567890"></div>
-      <div><label class="form-label">نص الرسالة</label><textarea class="form-input" id="waMessage" rows="5" placeholder="اكتب الرسالة هنا..."></textarea></div>
+      <div><label class="form-label">نص الرسالة</label><textarea class="form-input" id="waMessage" rows="5"></textarea></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
         <button onclick="setWATemplate('reminder')" class="btn-outline" style="font-size:11px;padding:5px 10px;"><i class="fas fa-bell"></i> تذكير جلسة</button>
         <button onclick="setWATemplate('payment')" class="btn-outline" style="font-size:11px;padding:5px 10px;"><i class="fas fa-money-bill"></i> تذكير دفع</button>
@@ -1235,207 +1247,226 @@ body.light .session-log-item{background:var(--dark3);}
 <!-- Toast -->
 <div id="toast"><span id="toastIcon"></span><span id="toastMsg">تم بنجاح</span></div>
 
-<div id="notifPermBanner" style="display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--dark2);border:1px solid var(--gold);border-radius:12px;padding:12px 20px;z-index:500;font-size:12px;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,.4);">
-  <i class="fas fa-bell" style="color:var(--gold);"></i>
-  <span>السماح بالإشعارات لتلقي تنبيهات الجلسات</span>
-  <button class="btn-gold" style="padding:5px 12px;font-size:11px;" onclick="requestNotifPerm()">السماح</button>
-  <button onclick="document.getElementById('notifPermBanner').style.display='none'" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:16px;">×</button>
-</div>
-
 <script>
 // ============================================================
-// STORAGE KEY - PERSISTENT (no seed data wipe on reload)
+// STORAGE KEY
 // ============================================================
-const STORAGE_KEY = 'agmLawData_v4';
+const STORAGE_KEY = 'agmLawData_v5';
+const SESSION_KEY = 'agmSession_v5';
 
 let DB = {
   cases:[], clients:[], staff:[], sessions:[],
   tasks:[], payments:[], documents:[], attendance:[],
   salaries:[], settings:{}, activityLog:[], sessionLogs:[],
-  version:'4.0', initialized: false
+  version:'5.0'
 };
 
 const CREDENTIALS = [
-  {username:'agm',password:'agm2024'},
-  {username:'admin',password:'admin'},
-  {username:'مصطفي',password:'مؤسسة المصطفي'}
+  {username:'agm', password:'agm2024'},
+  {username:'admin', password:'admin'},
+  {username:'مصطفي', password:'مؤسسة المصطفي'}
 ];
 
 // ============================================================
-// AUTH
+// AUTH - with persistent session
 // ============================================================
 function doLogin(){
-  const u=document.getElementById('loginUser').value.trim();
-  const p=document.getElementById('loginPass').value.trim();
-  if(CREDENTIALS.find(x=>x.username===u&&x.password===p)){
-    document.getElementById('loginScreen').style.display='none';
-    loadDB(); initApp();
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value.trim();
+  const remember = document.getElementById('rememberMe').checked;
+  if(CREDENTIALS.find(x => x.username===u && x.password===p)){
+    document.getElementById('loginError').style.display = 'none';
+    if(remember){
+      localStorage.setItem(SESSION_KEY, JSON.stringify({loggedIn:true, user:u, remember:true}));
+    } else {
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify({loggedIn:true, user:u}));
+    }
+    document.getElementById('loginScreen').style.display = 'none';
+    loadDB();
+    initApp();
   } else {
-    document.getElementById('loginError').style.display='block';
+    document.getElementById('loginError').style.display = 'block';
   }
 }
-function doLogout(){if(confirm('تسجيل الخروج؟')){document.getElementById('loginScreen').style.display='flex';}}
+
+function checkAutoLogin(){
+  // Check localStorage (remember me) first, then sessionStorage
+  let session = null;
+  try { session = JSON.parse(localStorage.getItem(SESSION_KEY)); } catch(e){}
+  if(!session) try { session = JSON.parse(sessionStorage.getItem(SESSION_KEY)); } catch(e){}
+  if(session && session.loggedIn){
+    document.getElementById('loginScreen').style.display = 'none';
+    loadDB();
+    initApp();
+    return true;
+  }
+  return false;
+}
+
+function doLogout(){
+  if(!confirm('تسجيل الخروج؟')) return;
+  // Only clear session, NOT the data
+  localStorage.removeItem(SESSION_KEY);
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+}
 
 // ============================================================
-// DATABASE - PERSISTENT STORAGE
+// DATABASE
 // ============================================================
 function loadDB(){
-  const saved=localStorage.getItem(STORAGE_KEY);
+  const saved = localStorage.getItem(STORAGE_KEY);
   if(saved){
-    try{
-      const p=JSON.parse(saved);
-      DB={...DB,...p};
-      // ensure arrays exist
-      ['cases','clients','staff','sessions','tasks','payments','documents','attendance','salaries','activityLog','sessionLogs'].forEach(k=>{if(!DB[k])DB[k]=[];});
-      if(!DB.settings)DB.settings={};
-    }catch(e){console.error('DB load error',e);}
-  }
-  // Only seed if truly empty (first run ever)
-  if(!DB.initialized){
-    seedDemo();
-    DB.initialized=true;
-    saveDB();
+    try {
+      const p = JSON.parse(saved);
+      DB = {...DB, ...p};
+      ['cases','clients','staff','sessions','tasks','payments','documents','attendance','salaries','activityLog','sessionLogs'].forEach(k=>{
+        if(!DB[k]) DB[k] = [];
+      });
+      if(!DB.settings) DB.settings = {};
+    } catch(e){ console.error('DB load error', e); }
   }
 }
 
 function saveDB(){
-  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(DB));}
-  catch(e){
-    // If storage full, try compressing by removing large photo data
-    showToast('تحذير: ذاكرة التخزين ممتلئة','warning');
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
+    updateStorageIndicator();
+  } catch(e){
+    showToast('تحذير: ذاكرة التخزين ممتلئة، قم بحفظ ملف data.json', 'warning');
   }
 }
 
-function seedDemo(){
-  DB.clients=[
-    {id:'c1',name:'أحمد محمد الخالد',phone:'+201001234567',email:'ahmed@email.com',idNum:'1085456789',address:'الرياض - حي العليا',notes:'',photo:'',createdAt:new Date().toISOString()},
-    {id:'c2',name:'سارة عبدالله القحطاني',phone:'+201009876543',email:'sara@email.com',idNum:'1092345678',address:'جدة - حي الروضة',notes:'',photo:'',createdAt:new Date().toISOString()},
-    {id:'c3',name:'خالد سعد العنزي',phone:'+201004567890',email:'khalid@email.com',idNum:'1078901234',address:'الدمام',notes:'',photo:'',createdAt:new Date().toISOString()}
-  ];
-  DB.staff=[
-    {id:'s1',name:'أ. مصطفى أباظة',role:'محامي',spec:'قانون مدني',license:'LIC-00001',phone:'+201001112222',email:'m@agm.com',salary:15000,joinDate:'2020-01-01',notes:'المدير العام',photo:''},
-    {id:'s2',name:'أ. نورة الشمري',role:'محامي',spec:'قانون تجاري',license:'LIC-00456',phone:'+201003334444',email:'noura@agm.com',salary:12000,joinDate:'2021-06-01',notes:'',photo:''},
-    {id:'s3',name:'أ. فيصل البقمي',role:'محامي',spec:'قانون جنائي',license:'LIC-00789',phone:'+201005556666',email:'faisal@agm.com',salary:10000,joinDate:'2022-03-01',notes:'',photo:''},
-    {id:'s4',name:'سلمى العتيبي',role:'سكرتير',spec:'إداري',license:'',phone:'+201007778888',email:'salma@agm.com',salary:6000,joinDate:'2022-09-01',notes:'',photo:''},
-    {id:'s5',name:'عبدالرحمن اليامي',role:'قهوجي',spec:'غير محدد',license:'',phone:'+201009990000',email:'',salary:3000,joinDate:'2023-01-01',notes:'',photo:''}
-  ];
-  const fd=new Date();fd.setDate(fd.getDate()+3);const fds=fd.toISOString().split('T')[0];
-  const nd=new Date();nd.setDate(nd.getDate()+1);const nds=nd.toISOString().split('T')[0];
-  DB.cases=[
-    {id:'case1',num:'2024-001',type:'مدني',clientId:'c1',lawyerId:'s1',court:'المحكمة الابتدائية بالرياض',division:'الدائرة المدنية الأولى',date:fds,status:'نشطة',notes:'نزاع على عقار',fee:25000,paid:15000,archived:false,createdAt:new Date().toISOString()},
-    {id:'case2',num:'2024-002',type:'تجاري',clientId:'c2',lawyerId:'s2',court:'المحكمة التجارية بجدة',division:'الدائرة الثانية',date:nds,status:'عاجلة',notes:'نزاع تجاري عاجل',fee:40000,paid:20000,archived:false,createdAt:new Date().toISOString()},
-    {id:'case3',num:'2024-003',type:'جنائي',clientId:'c3',lawyerId:'s3',court:'المحكمة الجزائية بالدمام',division:'الدائرة الجزائية',date:'2025-02-15',status:'معلقة',notes:'',fee:30000,paid:30000,archived:false,createdAt:new Date().toISOString()},
-    {id:'case4',num:'2024-004',type:'عمالي',clientId:'c1',lawyerId:'s1',court:'المحكمة العمالية',division:'الأولى',date:'2024-10-01',status:'مغلقة',notes:'تسوية ودية',fee:15000,paid:15000,archived:false,createdAt:new Date().toISOString()}
-  ];
-  DB.sessions=[
-    {id:'ss1',caseId:'case1',date:fds,time:'10:00',court:'المحكمة الابتدائية',notes:'جلسة استماع'},
-    {id:'ss2',caseId:'case2',date:nds,time:'14:00',court:'المحكمة التجارية',notes:'تقديم مستندات'}
-  ];
-  DB.tasks=[
-    {id:'t1',title:'مراجعة عقد الإيجار',priority:'عاجلة',due:'2025-01-20',ownerId:'s1',caseId:'case1',status:'pending'},
-    {id:'t2',title:'إعداد مذكرة دفاع',priority:'عادية',due:'2025-01-25',ownerId:'s2',caseId:'case2',status:'inprogress'},
-    {id:'t3',title:'متابعة حكم القضية 001',priority:'متوسطة',due:'2025-01-18',ownerId:'s3',caseId:'case3',status:'done'}
-  ];
-  DB.payments=[
-    {id:'p1',client:'أحمد الخالد',caseId:'case1',desc:'أتعاب قضية 2024-001',type:'إيراد',amount:15000,date:'2024-12-01',status:'مدفوع'},
-    {id:'p2',client:'سارة القحطاني',caseId:'case2',desc:'دفعة أولى قضية 2024-002',type:'إيراد',amount:20000,date:'2024-12-03',status:'مدفوع'},
-    {id:'p3',client:'المكتب',caseId:'',desc:'رسوم محكمة',type:'مصروف',amount:1200,date:'2024-12-05',status:'مدفوع'}
-  ];
-  DB.salaries=[
-    {id:'sal1',staffId:'s1',month:'2025-01',base:15000,bonus:5000,deduct:0,status:'مدفوع',note:''},
-    {id:'sal2',staffId:'s2',month:'2025-01',base:12000,bonus:2000,deduct:0,status:'مدفوع',note:''},
-    {id:'sal3',staffId:'s5',month:'2025-01',base:3000,bonus:0,deduct:300,status:'مدفوع',note:'خصم يوم'}
-  ];
-  DB.attendance=[
-    {id:'a1',staffId:'s1',date:new Date().toISOString().split('T')[0],timeIn:'08:30',timeOut:'17:00',status:'حاضر',deduct:0,note:''},
-    {id:'a2',staffId:'s2',date:new Date().toISOString().split('T')[0],timeIn:'09:00',timeOut:'17:30',status:'حاضر',deduct:0,note:''},
-    {id:'a3',staffId:'s5',date:new Date().toISOString().split('T')[0],timeIn:'',timeOut:'',status:'غائب',deduct:100,note:'غياب بدون إذن'}
-  ];
-  DB.sessionLogs=[
-    {id:'sl1',caseId:'case3',date:'2024-12-10',court:'المحكمة الجزائية',judge:'القاضي عبدالله',result:'تأجيل',what:'طلب المدعي تأجيل الجلسة لتقديم مستندات إضافية، وافق القاضي على التأجيل.',notes:'يجب إعداد المستندات المطلوبة قبل الجلسة القادمة.',nextDate:'2025-02-15'},
-    {id:'sl2',caseId:'case4',date:'2024-09-15',court:'المحكمة العمالية',judge:'القاضي محمد',result:'تسوية ودية',what:'تم التوصل إلى تسوية ودية بين الطرفين. حصل الموكل على كامل حقوقه.',notes:'القضية انتهت بنجاح.',nextDate:''}
-  ];
+function updateStorageIndicator(){
+  try {
+    const data = localStorage.getItem(STORAGE_KEY) || '';
+    const bytes = new Blob([data]).size;
+    const kb = (bytes/1024).toFixed(1);
+    const maxKB = 5120; // 5MB
+    const pct = Math.min(100, (bytes/1024/maxKB*100)).toFixed(0);
+    const el = document.getElementById('storageUsed');
+    const bar = document.getElementById('storageBarFill');
+    if(el) el.textContent = kb > 1024 ? (kb/1024).toFixed(2)+' MB' : kb+' KB';
+    if(bar) bar.style.width = pct+'%';
+    if(bar) bar.style.background = pct > 80 ? 'linear-gradient(90deg,var(--warning),var(--danger))' : 'linear-gradient(90deg,var(--success),var(--gold))';
+  } catch(e){}
+}
+
+// ============================================================
+// FILE EXPORT / IMPORT (device storage)
+// ============================================================
+function saveToFile(){
+  const data = JSON.stringify(DB, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `AGM_data_${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('تم حفظ ملف البيانات على جهازك', 'success');
+  logActivity('تصدير ملف البيانات');
+}
+
+function loadFromFile(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  if(!confirm('سيتم استبدال البيانات الحالية ببيانات الملف. هل أنت متأكد؟')) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      // Validate it's our format
+      if(!imported.cases && !imported.clients && !imported.staff){
+        showToast('الملف غير صالح', 'error');
+        return;
+      }
+      DB = {...DB, ...imported};
+      ['cases','clients','staff','sessions','tasks','payments','documents','attendance','salaries','activityLog','sessionLogs'].forEach(k=>{
+        if(!DB[k]) DB[k] = [];
+      });
+      saveDB();
+      showToast('تم استيراد البيانات بنجاح', 'success');
+      refreshPage(currentPage);
+      renderDashboard();
+    } catch(err){
+      showToast('خطأ في قراءة الملف', 'error');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
 }
 
 // ============================================================
 // NAVIGATION
 // ============================================================
-let currentPage='dashboard';
-let calDate=new Date();
-let caseViewMode='grid';
+let currentPage = 'dashboard';
+let calDate = new Date();
+let caseViewMode = 'grid';
 
-const pageTitles={
-  dashboard:'لوحة التحكم',cases:'القضايا',clients:'الموكلون',
-  staff:'الموظفون',attendance:'الحضور والغياب',sessions:'الجلسات',
-  sessionHistory:'تاريخ الجلسات',tasks:'المهام',finance:'النظام المالي',
-  payroll:'الرواتب',documents:'المستندات',ai:'المساعد الذكي',settings:'الإعدادات'
+const pageTitles = {
+  dashboard:'لوحة التحكم', cases:'القضايا', clients:'الموكلون',
+  staff:'الموظفون', attendance:'الحضور والغياب', sessions:'الجلسات',
+  sessionHistory:'تاريخ الجلسات', tasks:'المهام', finance:'النظام المالي',
+  payroll:'الرواتب', documents:'المستندات', ai:'المساعد الذكي', settings:'الإعدادات'
 };
 
 function showPage(page){
-  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  const section=document.getElementById('page-'+page);
-  if(section)section.classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(n=>{
-    if(n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+page+"'"))n.classList.add('active');
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const section = document.getElementById('page-'+page);
+  if(section) section.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if(n.getAttribute('onclick') && n.getAttribute('onclick').includes("'"+page+"'")) n.classList.add('active');
   });
-  document.getElementById('pageTitle').textContent=pageTitles[page]||'';
-  currentPage=page;
+  document.getElementById('pageTitle').textContent = pageTitles[page] || '';
+  currentPage = page;
   refreshPage(page);
   document.getElementById('notifPanel').classList.remove('active');
-  if(window.innerWidth<768)closeSidebar();
+  if(window.innerWidth < 768) closeSidebar();
 }
 
 function refreshPage(p){
-  const fn={
-    dashboard:renderDashboard,cases:renderCases,clients:renderClients,
-    staff:renderStaff,sessions:renderCalendar,sessionHistory:renderSessionHistory,
-    tasks:renderTasks,finance:renderFinance,payroll:renderPayroll,
-    documents:renderDocs,settings:renderSettings,
-    attendance:()=>{document.getElementById('attendDate').value=new Date().toISOString().split('T')[0];renderAttendance();}
+  const fn = {
+    dashboard: renderDashboard, cases: renderCases, clients: renderClients,
+    staff: renderStaff, sessions: renderCalendar, sessionHistory: renderSessionHistory,
+    tasks: renderTasks, finance: renderFinance, payroll: renderPayroll,
+    documents: renderDocs, settings: renderSettings,
+    attendance: () => {
+      document.getElementById('attendDate').value = new Date().toISOString().split('T')[0];
+      renderAttendance();
+    }
   };
-  if(fn[p])fn[p]();
+  if(fn[p]) fn[p]();
 }
 
 // ============================================================
 // MOBILE NAV
 // ============================================================
 function setMobNav(page){
-  document.querySelectorAll('.mob-nav-item').forEach(x=>x.classList.remove('active'));
-  const el=document.getElementById('mn-'+page);
-  if(el)el.classList.add('active');
+  document.querySelectorAll('.mob-nav-item').forEach(x => x.classList.remove('active'));
+  const el = document.getElementById('mn-'+page);
+  if(el) el.classList.add('active');
 }
-
-function openDrawer(){
-  document.getElementById('mobileDrawer').classList.add('open');
-  document.getElementById('drawerOverlay').classList.add('open');
-}
-function closeDrawer(){
-  document.getElementById('mobileDrawer').classList.remove('open');
-  document.getElementById('drawerOverlay').classList.remove('open');
-}
-
-function quickAdd(){
-  document.getElementById('qaDrawer').classList.add('open');
-  document.getElementById('qaOverlay').classList.add('open');
-}
-function closeQuickAdd(){
-  document.getElementById('qaDrawer').classList.remove('open');
-  document.getElementById('qaOverlay').classList.remove('open');
-}
+function openDrawer(){ document.getElementById('mobileDrawer').classList.add('open'); document.getElementById('drawerOverlay').classList.add('open'); }
+function closeDrawer(){ document.getElementById('mobileDrawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); }
+function quickAdd(){ document.getElementById('qaDrawer').classList.add('open'); document.getElementById('qaOverlay').classList.add('open'); }
+function closeQuickAdd(){ document.getElementById('qaDrawer').classList.remove('open'); document.getElementById('qaOverlay').classList.remove('open'); }
 
 function toggleSidebar(){
-  const sb=document.getElementById('sidebar');
-  const ov=document.getElementById('sidebarOverlay');
-  const btn=document.getElementById('sidebarCloseBtn');
-  sb.classList.toggle('open');
-  ov.classList.toggle('active');
-  btn.style.display=sb.classList.contains('open')?'block':'none';
+  const sb = document.getElementById('sidebar');
+  const ov = document.getElementById('sidebarOverlay');
+  const btn = document.getElementById('sidebarCloseBtn');
+  const isOpen = sb.classList.toggle('open');
+  ov.classList.toggle('active', isOpen);
+  btn.style.display = isOpen ? 'block' : 'none';
 }
 function closeSidebar(){
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebarOverlay').classList.remove('active');
-  document.getElementById('sidebarCloseBtn').style.display='none';
+  document.getElementById('sidebarCloseBtn').style.display = 'none';
 }
 
 // ============================================================
@@ -1443,125 +1474,124 @@ function closeSidebar(){
 // ============================================================
 function openModal(id){
   document.getElementById(id).classList.add('active');
-  if(id==='addCaseModal'){populateSel('caseClient',DB.clients,'name');populateSel('caseLawyer',DB.staff,'name');}
-  if(id==='addSessionModal')populateSel('sessionCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));
-  if(id==='addSessionLogModal'){populateSel('sessionLogCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));document.getElementById('sessionLogDate').value=new Date().toISOString().split('T')[0];}
-  if(id==='addDocModal')populateSel('docCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));
-  if(id==='addPaymentModal')populateSel('payCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));
-  if(id==='addAttendModal'){populateSel('attendStaff',DB.staff,'name');document.getElementById('attendDateIn').value=new Date().toISOString().split('T')[0];}
-  if(id==='addSalaryModal')populateSel('salaryStaff',DB.staff,'name');
-  if(id==='addTaskModal'){populateSel('taskOwner',DB.staff,'name');populateSel('taskCase',DB.cases,c=>c.num);}
+  if(id==='addCaseModal'){ populateSel('caseClient',DB.clients,'name'); populateSel('caseLawyer',DB.staff,'name'); }
+  if(id==='addSessionModal') populateSel('sessionCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));
+  if(id==='addSessionLogModal'){ populateSel('sessionLogCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId)); document.getElementById('sessionLogDate').value=new Date().toISOString().split('T')[0]; }
+  if(id==='addDocModal') populateSel('docCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));
+  if(id==='addPaymentModal') populateSel('payCase',DB.cases,c=>c.num+' - '+getClientName(c.clientId));
+  if(id==='addAttendModal'){ populateSel('attendStaff',DB.staff,'name'); document.getElementById('attendDateIn').value=new Date().toISOString().split('T')[0]; }
+  if(id==='addSalaryModal') populateSel('salaryStaff',DB.staff,'name');
+  if(id==='addTaskModal'){ populateSel('taskOwner',DB.staff,'name'); populateSel('taskCase',DB.cases,c=>c.num); }
 }
-function closeModal(id){document.getElementById(id).classList.remove('active');}
-document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('active');});});
+function closeModal(id){ document.getElementById(id).classList.remove('active'); }
+document.querySelectorAll('.modal-overlay').forEach(m => { m.addEventListener('click', e => { if(e.target===m) m.classList.remove('active'); }); });
 
-function populateSel(selId,arr,labelFn){
-  const sel=document.getElementById(selId);if(!sel)return;
-  const first=sel.options[0]?.outerHTML||'<option value="">--</option>';
-  sel.innerHTML=first;
-  arr.forEach(item=>{const o=document.createElement('option');o.value=item.id;o.textContent=typeof labelFn==='function'?labelFn(item):item[labelFn];sel.appendChild(o);});
+function populateSel(selId, arr, labelFn){
+  const sel = document.getElementById(selId); if(!sel) return;
+  const first = sel.options[0]?.outerHTML || '<option value="">--</option>';
+  sel.innerHTML = first;
+  arr.forEach(item => {
+    const o = document.createElement('option');
+    o.value = item.id;
+    o.textContent = typeof labelFn==='function' ? labelFn(item) : item[labelFn];
+    sel.appendChild(o);
+  });
 }
 
 // ============================================================
 // HELPERS
 // ============================================================
-function genId(){return '_'+Math.random().toString(36).substr(2,9);}
-function getClientName(id){const c=DB.clients.find(x=>x.id===id);return c?c.name:'غير محدد';}
-function getStaffName(id){const s=DB.staff.find(x=>x.id===id);return s?s.name:'غير محدد';}
-function getCaseName(id){const c=DB.cases.find(x=>x.id===id);return c?c.num:'غير محدد';}
-function getClientPhoto(clientId){const c=DB.clients.find(x=>x.id===clientId);return c?c.photo:'';}
-function formatDate(d){if(!d)return'-';try{return new Date(d).toLocaleDateString('ar-SA');}catch(e){return d;}}
-function statusBadge(s){const m={نشطة:'badge-active',معلقة:'badge-pending',مغلقة:'badge-closed',عاجلة:'badge-urgent',مؤرشفة:'archive-badge'};return `<span class="badge ${m[s]||'badge-pending'}">${s}</span>`;}
-function calcHours(tIn,tOut){if(!tIn||!tOut)return 0;const[h1,m1]=tIn.split(':').map(Number);const[h2,m2]=tOut.split(':').map(Number);return Math.max(0,(h2*60+m2-h1*60-m1)/60).toFixed(1);}
-function showToast(msg,type='success'){
-  const t=document.getElementById('toast');
-  const icons={success:'✅',error:'❌',warning:'⚠️',info:'ℹ️'};
-  document.getElementById('toastIcon').textContent=icons[type]||'✅';
-  document.getElementById('toastMsg').textContent=msg;
-  t.style.transform='translateX(-50%) translateY(0)';
-  setTimeout(()=>{t.style.transform='translateX(-50%) translateY(120px)';},3000);
+function genId(){ return '_'+Math.random().toString(36).substr(2,9)+Date.now().toString(36); }
+function getClientName(id){ const c=DB.clients.find(x=>x.id===id); return c?c.name:'غير محدد'; }
+function getStaffName(id){ const s=DB.staff.find(x=>x.id===id); return s?s.name:'غير محدد'; }
+function getCaseName(id){ const c=DB.cases.find(x=>x.id===id); return c?c.num:'غير محدد'; }
+function getClientPhoto(clientId){ const c=DB.clients.find(x=>x.id===clientId); return c?c.photo:''; }
+function formatDate(d){ if(!d)return'-'; try{ return new Date(d).toLocaleDateString('ar-SA'); }catch(e){ return d; } }
+function statusBadge(s){ const m={نشطة:'badge-active',معلقة:'badge-pending',مغلقة:'badge-closed',عاجلة:'badge-urgent',مؤرشفة:'archive-badge'}; return `<span class="badge ${m[s]||'badge-pending'}">${s}</span>`; }
+function calcHours(tIn,tOut){ if(!tIn||!tOut)return 0; const[h1,m1]=tIn.split(':').map(Number); const[h2,m2]=tOut.split(':').map(Number); return Math.max(0,(h2*60+m2-h1*60-m1)/60).toFixed(1); }
+
+function showToast(msg, type='success'){
+  const t = document.getElementById('toast');
+  const icons = {success:'✅',error:'❌',warning:'⚠️',info:'ℹ️'};
+  document.getElementById('toastIcon').textContent = icons[type]||'✅';
+  document.getElementById('toastMsg').textContent = msg;
+  t.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(()=>{ t.style.transform = 'translateX(-50%) translateY(120px)'; }, 3000);
 }
-function logActivity(a){if(!DB.activityLog)DB.activityLog=[];DB.activityLog.unshift({action:a,time:new Date().toLocaleString('ar-SA')});if(DB.activityLog.length>100)DB.activityLog.pop();}
+function logActivity(a){ if(!DB.activityLog)DB.activityLog=[]; DB.activityLog.unshift({action:a,time:new Date().toLocaleString('ar-SA')}); if(DB.activityLog.length>100)DB.activityLog.pop(); }
 
 function previewPhoto(event,previewId,dataId){
-  const file=event.target.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{
-    const prev=document.getElementById(previewId);
-    const data=document.getElementById(dataId);
+  const file = event.target.files[0]; if(!file)return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const prev = document.getElementById(previewId);
+    const data = document.getElementById(dataId);
     if(prev&&data){
-      prev.innerHTML=`<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
-      data.value=e.target.result;
+      prev.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+      data.value = e.target.result;
     }
   };
   reader.readAsDataURL(file);
 }
 
 function renderAvatar(photo,name,size=36,fontSize=13){
-  if(photo)return`<div class="avatar" style="width:${size}px;height:${size}px;"><img src="${photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>`;
-  return`<div class="avatar" style="width:${size}px;height:${size}px;font-size:${fontSize}px;">${name?name[0]:'?'}</div>`;
+  if(photo) return `<div class="avatar" style="width:${size}px;height:${size}px;"><img src="${photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>`;
+  return `<div class="avatar" style="width:${size}px;height:${size}px;font-size:${fontSize}px;">${name?name[0]:'?'}</div>`;
 }
 
 // ============================================================
 // THEME
 // ============================================================
-let isDark=true;
+let isDark = true;
 function toggleTheme(){
-  isDark=!isDark;
+  isDark = !isDark;
   document.body.classList.toggle('light',!isDark);
-  document.getElementById('themeIcon').className=isDark?'fas fa-sun':'fas fa-moon';
-  localStorage.setItem('agmTheme',isDark?'dark':'light');
+  document.getElementById('themeIcon').className = isDark?'fas fa-sun':'fas fa-moon';
+  localStorage.setItem('agmTheme', isDark?'dark':'light');
 }
-(function(){const t=localStorage.getItem('agmTheme');if(t==='light'){isDark=false;document.body.classList.add('light');document.getElementById('themeIcon').className='fas fa-moon';}})();
-
-// ============================================================
-// BROWSER NOTIFICATIONS
-// ============================================================
-function requestNotifPerm(){
-  if('Notification'in window){Notification.requestPermission().then(p=>{document.getElementById('notifPermBanner').style.display='none';if(p==='granted')showToast('تم تفعيل الإشعارات','info');});}
-}
-function sendBrowserNotif(title,body){
-  if('Notification'in window&&Notification.permission==='granted'){new Notification(title,{body,icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">⚖️</text></svg>'});}
-}
+(function(){ const t=localStorage.getItem('agmTheme'); if(t==='light'){ isDark=false; document.body.classList.add('light'); document.getElementById('themeIcon').className='fas fa-moon'; } })();
 
 // ============================================================
 // SESSION ALERTS
 // ============================================================
 function checkSessionAlerts(){
-  const today=new Date();today.setHours(0,0,0,0);
-  const alerts=DB.sessions.filter(s=>{const d=new Date(s.date);d.setHours(0,0,0,0);const diff=(d-today)/(1000*60*60*24);return diff>=0&&diff<=3;});
-  const el=document.getElementById('sessionAlerts');
-  if(el&&alerts.length){
-    el.innerHTML=alerts.map(s=>{
-      const d=new Date(s.date);d.setHours(0,0,0,0);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const alerts = DB.sessions.filter(s=>{ const d=new Date(s.date); d.setHours(0,0,0,0); const diff=(d-today)/(1000*60*60*24); return diff>=0&&diff<=3; });
+  const el = document.getElementById('sessionAlerts');
+  if(el && alerts.length){
+    el.innerHTML = alerts.map(s=>{
+      const d=new Date(s.date); d.setHours(0,0,0,0);
       const diff=Math.round((d-today)/(1000*60*60*24));
       const label=diff===0?'⚡ اليوم':diff===1?'غداً':`بعد ${diff} أيام`;
-      return`<div class="alert-banner"><div class="urgent-dot"></div><i class="fas fa-exclamation-triangle" style="color:var(--warning);font-size:16px;"></i><div style="flex:1;"><span style="font-size:13px;font-weight:700;color:var(--gold);">جلسة قريبة: ${getCaseName(s.caseId)}</span><span style="font-size:11px;color:var(--text-muted);margin-right:10px;">${s.court||''} - ${formatDate(s.date)} ${s.time?'الساعة '+s.time:''}</span></div><span class="badge badge-urgent">${label}</span></div>`;
+      return `<div class="alert-banner"><div class="urgent-dot"></div><i class="fas fa-exclamation-triangle" style="color:var(--warning);font-size:16px;"></i><div style="flex:1;"><span style="font-size:13px;font-weight:700;color:var(--gold);">جلسة قريبة: ${getCaseName(s.caseId)}</span><span style="font-size:11px;color:var(--text-muted);margin-right:10px;">${s.court||''} - ${formatDate(s.date)} ${s.time?'الساعة '+s.time:''}</span></div><span class="badge badge-urgent">${label}</span></div>`;
     }).join('');
-  }else if(el)el.innerHTML='';
+  } else if(el) el.innerHTML='';
 
-  const notifList=document.getElementById('notifList');
-  if(!notifList)return;
-  const badge=document.getElementById('notifBadge');
-  if(!alerts.length){notifList.innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">لا توجد جلسات قريبة</p>';badge.style.display='none';return;}
-  badge.style.display='flex';badge.textContent=alerts.length;
-  notifList.innerHTML=alerts.map(s=>{
-    const d=new Date(s.date);d.setHours(0,0,0,0);
+  const notifList = document.getElementById('notifList');
+  const badge = document.getElementById('notifBadge');
+  if(!alerts.length){
+    if(notifList) notifList.innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">لا توجد جلسات قريبة</p>';
+    if(badge) badge.style.display='none';
+    return;
+  }
+  if(badge){ badge.style.display='flex'; badge.textContent=alerts.length; }
+  if(notifList) notifList.innerHTML = alerts.map(s=>{
+    const d=new Date(s.date); d.setHours(0,0,0,0);
     const diff=Math.round((d-today)/(1000*60*60*24));
     const label=diff===0?'اليوم':diff===1?'غداً':`بعد ${diff} أيام`;
-    return`<div style="padding:10px 14px;border-bottom:1px solid var(--glass-border);display:flex;gap:10px;align-items:flex-start;"><div style="width:8px;height:8px;background:var(--danger);border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><div style="font-size:12px;font-weight:600;">جلسة: ${getCaseName(s.caseId)}</div><div style="font-size:10px;color:var(--text-muted);">${label} - ${s.court||''} ${s.time?'| '+s.time:''}</div></div></div>`;
+    return `<div style="padding:10px 14px;border-bottom:1px solid var(--glass-border);display:flex;gap:10px;align-items:flex-start;"><div style="width:8px;height:8px;background:var(--danger);border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><div style="font-size:12px;font-weight:600;">جلسة: ${getCaseName(s.caseId)}</div><div style="font-size:10px;color:var(--text-muted);">${label} - ${s.court||''} ${s.time?'| '+s.time:''}</div></div></div>`;
   }).join('');
 }
-function toggleNotif(){document.getElementById('notifPanel').classList.toggle('active');}
-function clearNotifs(){document.getElementById('notifList').innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">تم مسح التنبيهات</p>';document.getElementById('notifBadge').style.display='none';document.getElementById('notifPanel').classList.remove('active');}
-document.addEventListener('click',e=>{const p=document.getElementById('notifPanel');if(p&&!p.contains(e.target)&&!e.target.closest('[onclick="toggleNotif()"]'))p.classList.remove('active');});
+function toggleNotif(){ document.getElementById('notifPanel').classList.toggle('active'); }
+function clearNotifs(){ document.getElementById('notifList').innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">تم مسح التنبيهات</p>'; document.getElementById('notifBadge').style.display='none'; document.getElementById('notifPanel').classList.remove('active'); }
+document.addEventListener('click', e=>{ const p=document.getElementById('notifPanel'); if(p&&!p.contains(e.target)&&!e.target.closest('[onclick="toggleNotif()"]')) p.classList.remove('active'); });
 
 // ============================================================
 // WHATSAPP
 // ============================================================
-let waCurrentName='',waCurrentPhone='';
+let waCurrentName='', waCurrentPhone='';
 function openWhatsApp(name,phone,caseNum=''){
-  waCurrentName=name;waCurrentPhone=phone;
+  waCurrentName=name; waCurrentPhone=phone;
   document.getElementById('waRecipient').value=name;
   document.getElementById('waPhone').value=phone;
   document.getElementById('waMessage').value=`السلام عليكم ورحمة الله وبركاته،\nحضرة الموكل الكريم ${name}،\n\nنأمل أن تكون في تمام الصحة والعافية.\n\n${caseNum?'بخصوص القضية رقم '+caseNum+'، ':''}يسعدنا خدمتكم.\n\nمع تحيات مؤسسة AGM للمحاماة والاستشارات القانونية`;
@@ -1579,9 +1609,9 @@ function setWATemplate(type){
 function sendWhatsApp(){
   const phone=document.getElementById('waPhone').value.replace(/[^0-9]/g,'');
   const msg=encodeURIComponent(document.getElementById('waMessage').value);
-  if(!phone){showToast('الرجاء إدخال رقم الهاتف','error');return;}
+  if(!phone){ showToast('الرجاء إدخال رقم الهاتف','error'); return; }
   window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
-  closeModal('whatsappModal');showToast('تم فتح واتساب','info');
+  closeModal('whatsappModal'); showToast('تم فتح واتساب','info');
 }
 
 // ============================================================
@@ -1594,7 +1624,7 @@ function renderDashboard(){
   const revenue=DB.payments.filter(p=>p.type==='إيراد').reduce((a,b)=>a+(+b.amount),0);
   const expense=DB.payments.filter(p=>p.type==='مصروف').reduce((a,b)=>a+(+b.amount),0);
   const today=new Date();
-  const weekSess=DB.sessions.filter(s=>{const d=new Date(s.date);const diff=(d-today)/(1000*60*60*24);return diff>=0&&diff<=7;}).length;
+  const weekSess=DB.sessions.filter(s=>{ const d=new Date(s.date); const diff=(d-today)/(1000*60*60*24); return diff>=0&&diff<=7; }).length;
   document.getElementById('stat-active').textContent=active;
   document.getElementById('stat-clients').textContent=DB.clients.length;
   document.getElementById('stat-sessions').textContent=weekSess;
@@ -1624,7 +1654,7 @@ function renderDashboard(){
       <div style="width:30px;height:30px;background:rgba(201,168,76,.1);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">⚖️</div>
       <div style="flex:1;min-width:0;"><div style="font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${c.num} - ${getClientName(c.clientId)}</div><div style="font-size:10px;color:var(--text-muted);">${c.type} • ${c.court}</div></div>
       ${statusBadge(c.status)}
-    </div>`).join(''):'<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:20px;">لا توجد قضايا</p>';
+    </div>`).join(''):'<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:20px;">لا توجد قضايا بعد. أضف قضيتك الأولى!</p>';
 
   const pending=DB.tasks.filter(t=>t.status!=='done').slice(0,4);
   document.getElementById('dashTasks').innerHTML=pending.length?pending.map(t=>`
@@ -1636,16 +1666,17 @@ function renderDashboard(){
 }
 
 // ============================================================
-// CASES - PREMIUM CARDS + TABLE VIEW
+// CASES
 // ============================================================
 function setCaseView(mode){
   caseViewMode=mode;
   document.getElementById('caseCardsGrid').style.display=mode==='grid'?'grid':'none';
   document.getElementById('caseTableWrap').style.display=mode==='table'?'block':'none';
-  document.getElementById('viewGrid').style.background=mode==='grid'?'linear-gradient(135deg,var(--gold),var(--gold-dark))':'transparent';
-  document.getElementById('viewGrid').style.color=mode==='grid'?'#07090D':'var(--text-muted)';
-  document.getElementById('viewTable').style.background=mode==='table'?'linear-gradient(135deg,var(--gold),var(--gold-dark))':'transparent';
-  document.getElementById('viewTable').style.color=mode==='table'?'#07090D':'var(--text-muted)';
+  const gBtn=document.getElementById('viewGrid'); const tBtn=document.getElementById('viewTable');
+  gBtn.style.background=mode==='grid'?'linear-gradient(135deg,var(--gold),var(--gold-dark))':'transparent';
+  gBtn.style.color=mode==='grid'?'#07090D':'var(--text-muted)';
+  tBtn.style.background=mode==='table'?'linear-gradient(135deg,var(--gold),var(--gold-dark))':'transparent';
+  tBtn.style.color=mode==='table'?'#07090D':'var(--text-muted)';
   renderCases();
 }
 
@@ -1653,18 +1684,20 @@ function addCase(){
   const editId=document.getElementById('editCaseId').value;
   const num=document.getElementById('caseNum').value.trim();
   const clientId=document.getElementById('caseClient').value;
-  if(!num||!clientId){showToast('الرجاء إدخال رقم القضية والموكل','error');return;}
-  if(!editId&&DB.cases.find(c=>c.num===num)){showToast('رقم القضية موجود مسبقاً','error');return;}
+  if(!num||!clientId){ showToast('الرجاء إدخال رقم القضية والموكل','error'); return; }
+  if(!editId && DB.cases.find(c=>c.num===num)){ showToast('رقم القضية موجود مسبقاً','error'); return; }
   const data={num,type:document.getElementById('caseType').value,clientId,lawyerId:document.getElementById('caseLawyer').value,court:document.getElementById('caseCourt').value.trim(),division:document.getElementById('caseDivision').value.trim(),date:document.getElementById('caseDate').value,status:document.getElementById('caseStatus').value,notes:document.getElementById('caseNotes').value.trim(),fee:+document.getElementById('caseFee').value||0,paid:+document.getElementById('casePaid').value||0,archived:false};
-  if(editId){const c=DB.cases.find(x=>x.id===editId);if(c)Object.assign(c,data);logActivity('تعديل قضية: '+num);}
-  else{DB.cases.push({id:genId(),...data,createdAt:new Date().toISOString()});logActivity('إضافة قضية: '+num);}
-  saveDB();closeModal('addCaseModal');renderCases();showToast(editId?'تم تعديل القضية':'تم إضافة القضية بنجاح');
-  document.getElementById('editCaseId').value='';document.getElementById('caseModalTitle').textContent='إضافة قضية جديدة';document.getElementById('caseSaveBtn').textContent='حفظ القضية';
-  ['caseNum','caseCourt','caseDivision','caseDate','caseNotes','caseFee','casePaid'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  if(editId){ const c=DB.cases.find(x=>x.id===editId); if(c)Object.assign(c,data); logActivity('تعديل قضية: '+num); }
+  else{ DB.cases.push({id:genId(),...data,createdAt:new Date().toISOString()}); logActivity('إضافة قضية: '+num); }
+  saveDB(); closeModal('addCaseModal'); renderCases(); showToast(editId?'تم تعديل القضية':'تم إضافة القضية بنجاح');
+  document.getElementById('editCaseId').value='';
+  document.getElementById('caseModalTitle').textContent='إضافة قضية جديدة';
+  document.getElementById('caseSaveBtn').textContent='حفظ القضية';
+  ['caseNum','caseCourt','caseDivision','caseDate','caseNotes','caseFee','casePaid'].forEach(id=>{ const el=document.getElementById(id); if(el)el.value=''; });
 }
 
 function editCase(id){
-  const c=DB.cases.find(x=>x.id===id);if(!c)return;
+  const c=DB.cases.find(x=>x.id===id); if(!c)return;
   document.getElementById('editCaseId').value=id;
   document.getElementById('caseModalTitle').textContent='تعديل القضية';
   document.getElementById('caseSaveBtn').textContent='حفظ التعديلات';
@@ -1684,13 +1717,7 @@ function editCase(id){
   },100);
 }
 
-const caseAccents={
-  نشطة:'linear-gradient(90deg,#10B981,#059669)',
-  معلقة:'linear-gradient(90deg,#F59E0B,#D97706)',
-  مغلقة:'linear-gradient(90deg,#6B7280,#4B5563)',
-  عاجلة:'linear-gradient(90deg,#EF4444,#DC2626)',
-  مؤرشفة:'linear-gradient(90deg,#8B5CF6,#6D28D9)'
-};
+const caseAccents={نشطة:'linear-gradient(90deg,#10B981,#059669)',معلقة:'linear-gradient(90deg,#F59E0B,#D97706)',مغلقة:'linear-gradient(90deg,#6B7280,#4B5563)',عاجلة:'linear-gradient(90deg,#EF4444,#DC2626)',مؤرشفة:'linear-gradient(90deg,#8B5CF6,#6D28D9)'};
 const typeIcons={مدني:'⚖️',جنائي:'🔒',تجاري:'💼',عمالي:'👷',أسري:'👨‍👩‍👧',عقاري:'🏠',إداري:'📋'};
 
 function renderCases(){
@@ -1702,26 +1729,19 @@ function renderCases(){
     return match&&filt;
   });
   const empty=document.getElementById('casesEmpty');
-  if(!cases.length){document.getElementById('caseCardsGrid').innerHTML='';document.getElementById('casesBody').innerHTML='';empty.style.display='block';return;}
+  if(!cases.length){ document.getElementById('caseCardsGrid').innerHTML=''; document.getElementById('casesBody').innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
-  const today=new Date();today.setHours(0,0,0,0);
+  const today=new Date(); today.setHours(0,0,0,0);
 
-  // ── GRID CARDS ──
   document.getElementById('caseCardsGrid').innerHTML=cases.map(c=>{
     const remaining=(c.fee||0)-(c.paid||0);
     const pct=c.fee?Math.min(100,Math.round((c.paid||0)/(c.fee||1)*100)):0;
     let sessionAlert='';
-    if(c.date){const d=new Date(c.date);d.setHours(0,0,0,0);const diff=(d-today)/(1000*60*60*24);if(diff>=0&&diff<=3)sessionAlert=`<span class="badge badge-urgent" style="font-size:9px;"><i class="fas fa-bell"></i> ${diff===0?'اليوم':diff===1?'غداً':'قريباً'}</span>`;}
-    return`<div class="case-card" style="--case-accent:${caseAccents[c.status]||'linear-gradient(90deg,var(--gold),var(--gold-dark))'};animation:fadeIn .3s ease;">
+    if(c.date){ const d=new Date(c.date); d.setHours(0,0,0,0); const diff=(d-today)/(1000*60*60*24); if(diff>=0&&diff<=3)sessionAlert=`<span class="badge badge-urgent" style="font-size:9px;"><i class="fas fa-bell"></i> ${diff===0?'اليوم':diff===1?'غداً':'قريباً'}</span>`; }
+    return `<div class="case-card" style="--case-accent:${caseAccents[c.status]||'linear-gradient(90deg,var(--gold),var(--gold-dark))'};animation:fadeIn .3s ease;">
       <div class="cc-top">
-        <div>
-          <div class="cc-num gold-text">${c.num}</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${typeIcons[c.type]||'⚖️'} ${c.type}</div>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
-          ${statusBadge(c.status)}
-          ${sessionAlert}
-        </div>
+        <div><div class="cc-num gold-text">${c.num}</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${typeIcons[c.type]||'⚖️'} ${c.type}</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">${statusBadge(c.status)}${sessionAlert}</div>
       </div>
       <div class="cc-body">
         <div class="cc-info-row"><i class="fas fa-user"></i><span style="font-weight:600;">${getClientName(c.clientId)}</span></div>
@@ -1737,10 +1757,7 @@ function renderCases(){
       </div>
       <div class="cc-divider"></div>
       <div class="cc-footer">
-        <div class="cc-fee-block">
-          <span class="fee-label">الأتعاب الكلية</span>
-          <span class="fee-val gold-text">${(c.fee||0).toLocaleString('ar-SA')} ر.س</span>
-        </div>
+        <div class="cc-fee-block"><span class="fee-label">الأتعاب الكلية</span><span class="fee-val gold-text">${(c.fee||0).toLocaleString('ar-SA')} ر.س</span></div>
         <div class="cc-actions">
           <button onclick="viewCase('${c.id}')" class="btn-edit btn-sm" title="عرض"><i class="fas fa-eye"></i></button>
           <button onclick="editCase('${c.id}')" style="background:rgba(245,158,11,.1);color:#F59E0B;border:1px solid rgba(245,158,11,.25);padding:5px 8px;border-radius:6px;font-size:11px;cursor:pointer;" title="تعديل"><i class="fas fa-edit"></i></button>
@@ -1751,19 +1768,13 @@ function renderCases(){
     </div>`;
   }).join('');
 
-  // ── TABLE VIEW ──
   document.getElementById('casesBody').innerHTML=cases.map(c=>{
     const remaining=(c.fee||0)-(c.paid||0);
-    let sessionAlert='';
-    if(c.date){const d=new Date(c.date);d.setHours(0,0,0,0);const diff=(d-today)/(1000*60*60*24);if(diff>=0&&diff<=3)sessionAlert=`<i class="fas fa-bell" style="color:var(--warning);margin-right:4px;"></i>`;}
-    return`<tr>
-      <td><span style="color:var(--gold);font-weight:700;">${c.num}</span>${c.archived?'<span class="archive-badge" style="margin-right:4px;">مؤرشف</span>':''}</td>
+    return `<tr>
+      <td><span style="color:var(--gold);font-weight:700;">${c.num}</span></td>
       <td><div style="display:flex;align-items:center;gap:7px;">${renderAvatar(getClientPhoto(c.clientId),getClientName(c.clientId),26,10)}${getClientName(c.clientId)}</div></td>
-      <td><span style="background:rgba(201,168,76,.09);color:var(--gold);padding:2px 7px;border-radius:5px;font-size:11px;">${c.type}</span></td>
-      <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;">${c.court}</td>
-      <td>${getStaffName(c.lawyerId)}</td>
-      <td>${sessionAlert}${c.date?formatDate(c.date):'-'}</td>
-      <td>${statusBadge(c.status)}</td>
+      <td>${c.type}</td><td>${c.court}</td><td>${getStaffName(c.lawyerId)}</td>
+      <td>${c.date?formatDate(c.date):'-'}</td><td>${statusBadge(c.status)}</td>
       <td style="font-size:11px;">${(c.fee||0).toLocaleString('ar-SA')}<br><span style="color:${remaining>0?'var(--danger)':'var(--success)'};">${remaining>0?'متبقي: '+remaining.toLocaleString('ar-SA'):'✓'}</span></td>
       <td><div style="display:flex;gap:3px;">
         <button onclick="viewCase('${c.id}')" class="btn-edit btn-sm"><i class="fas fa-eye"></i></button>
@@ -1773,16 +1784,15 @@ function renderCases(){
     </tr>`;
   }).join('');
 
-  // Sync view wrappers visibility
   document.getElementById('caseCardsGrid').style.display=caseViewMode==='grid'?'grid':'none';
   document.getElementById('caseTableWrap').style.display=caseViewMode==='table'?'block':'none';
 }
 
-function deleteCase(id){if(!confirm('حذف هذه القضية؟'))return;DB.cases=DB.cases.filter(c=>c.id!==id);saveDB();logActivity('حذف قضية');renderCases();showToast('تم الحذف','warning');}
-function archiveCase(id){const c=DB.cases.find(x=>x.id===id);if(!c)return;c.archived=!c.archived;c.status=c.archived?'مؤرشفة':c.status==='مؤرشفة'?'مغلقة':c.status;saveDB();renderCases();showToast(c.archived?'تم أرشفة القضية':'تم إلغاء الأرشفة','info');}
+function deleteCase(id){ if(!confirm('حذف هذه القضية؟'))return; DB.cases=DB.cases.filter(c=>c.id!==id); saveDB(); logActivity('حذف قضية'); renderCases(); showToast('تم الحذف','warning'); }
+function archiveCase(id){ const c=DB.cases.find(x=>x.id===id); if(!c)return; c.archived=!c.archived; c.status=c.archived?'مؤرشفة':c.status==='مؤرشفة'?'مغلقة':c.status; saveDB(); renderCases(); showToast(c.archived?'تم أرشفة القضية':'تم إلغاء الأرشفة','info'); }
 
 function viewCase(id){
-  const c=DB.cases.find(x=>x.id===id);if(!c)return;
+  const c=DB.cases.find(x=>x.id===id); if(!c)return;
   const remaining=(c.fee||0)-(c.paid||0);
   const caseSessions=DB.sessions.filter(s=>s.caseId===id);
   const casePayments=DB.payments.filter(p=>p.caseId===id);
@@ -1801,11 +1811,11 @@ function viewCase(id){
       <div><span style="color:var(--text-muted);">المتبقي:</span> <strong style="color:${remaining>0?'var(--danger)':'var(--success)'};">${remaining.toLocaleString('ar-SA')} ر.س</strong></div>
       <div style="grid-column:span 2;"><span style="color:var(--text-muted);">ملاحظات:</span> ${c.notes||'لا توجد'}</div>
     </div>
-    <div style="margin-bottom:10px;"><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">📅 الجلسات القادمة (${caseSessions.length})</div>${caseSessions.map(s=>`<div style="font-size:11px;padding:4px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;">${formatDate(s.date)} ${s.time||''} - ${s.court||'-'}</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>
-    <div style="margin-bottom:10px;"><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">📜 سجل الجلسات المنتهية (${caseLogs.length})</div>${caseLogs.map(l=>`<div style="font-size:11px;padding:6px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;border-right:2px solid var(--gold);"><strong>${formatDate(l.date)}</strong> - ${l.result} - ${l.what.substring(0,60)}...</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>
+    <div style="margin-bottom:10px;"><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">📅 الجلسات (${caseSessions.length})</div>${caseSessions.map(s=>`<div style="font-size:11px;padding:4px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;">${formatDate(s.date)} ${s.time||''} - ${s.court||'-'}</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>
+    <div style="margin-bottom:10px;"><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">📜 سجل الجلسات (${caseLogs.length})</div>${caseLogs.map(l=>`<div style="font-size:11px;padding:6px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;border-right:2px solid var(--gold);">${formatDate(l.date)} - ${l.result} - ${l.what.substring(0,60)}...</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>
     <div><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">💰 المدفوعات (${casePayments.length})</div>${casePayments.map(p=>`<div style="font-size:11px;padding:4px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;">${p.desc} - ${(+p.amount).toLocaleString('ar-SA')} ر.س</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>`;
   document.getElementById('qrcode').innerHTML='';
-  try{new QRCode(document.getElementById('qrcode'),{text:`AGM|${c.num}|${getClientName(c.clientId)}|${c.status}`,width:70,height:70,colorDark:'#C9A84C',colorLight:'#111827'});}catch(e){}
+  try{ new QRCode(document.getElementById('qrcode'),{text:`AGM|${c.num}|${getClientName(c.clientId)}|${c.status}`,width:70,height:70,colorDark:'#C9A84C',colorLight:'#111827'}); }catch(e){}
   openModal('caseDetailModal');
 }
 
@@ -1815,17 +1825,20 @@ function viewCase(id){
 function addClient(){
   const editId=document.getElementById('editClientId').value;
   const name=document.getElementById('clientName').value.trim();
-  if(!name){showToast('الرجاء إدخال الاسم','error');return;}
+  if(!name){ showToast('الرجاء إدخال الاسم','error'); return; }
   const data={name,phone:document.getElementById('clientPhone').value.trim(),email:document.getElementById('clientEmail').value.trim(),idNum:document.getElementById('clientID').value.trim(),address:document.getElementById('clientAddress').value.trim(),notes:document.getElementById('clientNotes').value.trim(),photo:document.getElementById('clientPhotoData').value||''};
-  if(editId){const c=DB.clients.find(x=>x.id===editId);if(c)Object.assign(c,data);logActivity('تعديل موكل: '+name);}
-  else{DB.clients.push({id:genId(),...data,createdAt:new Date().toISOString()});logActivity('إضافة موكل: '+name);}
-  saveDB();closeModal('addClientModal');renderClients();showToast(editId?'تم تعديل الموكل':'تم إضافة الموكل');
-  document.getElementById('editClientId').value='';document.getElementById('clientModalTitle').textContent='إضافة موكل جديد';document.getElementById('clientSaveBtn').textContent='حفظ الموكل';
-  document.getElementById('clientPhotoPreview').innerHTML='👤';document.getElementById('clientPhotoData').value='';
-  ['clientName','clientPhone','clientEmail','clientID','clientAddress','clientNotes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  if(editId){ const c=DB.clients.find(x=>x.id===editId); if(c)Object.assign(c,data); logActivity('تعديل موكل: '+name); }
+  else{ DB.clients.push({id:genId(),...data,createdAt:new Date().toISOString()}); logActivity('إضافة موكل: '+name); }
+  saveDB(); closeModal('addClientModal'); renderClients(); showToast(editId?'تم تعديل الموكل':'تم إضافة الموكل');
+  document.getElementById('editClientId').value='';
+  document.getElementById('clientModalTitle').textContent='إضافة موكل جديد';
+  document.getElementById('clientSaveBtn').textContent='حفظ الموكل';
+  document.getElementById('clientPhotoPreview').innerHTML='👤';
+  document.getElementById('clientPhotoData').value='';
+  ['clientName','clientPhone','clientEmail','clientID','clientAddress','clientNotes'].forEach(id=>{ const el=document.getElementById(id); if(el)el.value=''; });
 }
 function editClient(id){
-  const c=DB.clients.find(x=>x.id===id);if(!c)return;
+  const c=DB.clients.find(x=>x.id===id); if(!c)return;
   document.getElementById('editClientId').value=id;
   document.getElementById('clientModalTitle').textContent='تعديل الموكل';
   document.getElementById('clientSaveBtn').textContent='حفظ التعديلات';
@@ -1837,18 +1850,18 @@ function editClient(id){
     document.getElementById('clientID').value=c.idNum||'';
     document.getElementById('clientAddress').value=c.address||'';
     document.getElementById('clientNotes').value=c.notes||'';
-    if(c.photo){document.getElementById('clientPhotoPreview').innerHTML=`<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;document.getElementById('clientPhotoData').value=c.photo;}
+    if(c.photo){ document.getElementById('clientPhotoPreview').innerHTML=`<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`; document.getElementById('clientPhotoData').value=c.photo; }
   },100);
 }
 function renderClients(){
   const grid=document.getElementById('clientsGrid');
   const empty=document.getElementById('clientsEmpty');
-  if(!DB.clients.length){grid.innerHTML='';empty.style.display='block';return;}
+  if(!DB.clients.length){ grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
   grid.innerHTML=DB.clients.map(c=>{
     const cc=DB.cases.filter(x=>x.clientId===c.id).length;
     const activeCases=DB.cases.filter(x=>x.clientId===c.id&&x.status==='نشطة').length;
-    return`<div class="person-card">
+    return `<div class="person-card">
       <div class="card-header"></div>
       <div class="card-avatar">${c.photo?`<img src="${c.photo}" style="width:100%;height:100%;object-fit:cover;">`:'<span style="font-size:26px;">'+c.name[0]+'</span>'}</div>
       <div class="card-body">
@@ -1856,7 +1869,6 @@ function renderClients(){
         <div style="font-size:10px;color:var(--gold);margin-bottom:10px;">موكل مسجل</div>
         ${c.phone?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><i class="fas fa-phone" style="color:var(--gold);margin-left:5px;width:14px;"></i>${c.phone}</div>`:''}
         ${c.email?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><i class="fas fa-envelope" style="color:var(--gold);margin-left:5px;width:14px;"></i>${c.email}</div>`:''}
-        ${c.idNum?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><i class="fas fa-id-card" style="color:var(--gold);margin-left:5px;width:14px;"></i>${c.idNum}</div>`:''}
         ${c.address?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-left:5px;width:14px;"></i>${c.address}</div>`:''}
         <div style="display:flex;gap:8px;margin-top:10px;">
           <span style="font-size:11px;color:var(--success);"><i class="fas fa-gavel"></i> ${cc} قضية</span>
@@ -1871,7 +1883,7 @@ function renderClients(){
     </div>`;
   }).join('');
 }
-function deleteClient(id){if(!confirm('حذف هذا الموكل؟'))return;DB.clients=DB.clients.filter(c=>c.id!==id);saveDB();renderClients();showToast('تم الحذف','warning');}
+function deleteClient(id){ if(!confirm('حذف هذا الموكل؟'))return; DB.clients=DB.clients.filter(c=>c.id!==id); saveDB(); renderClients(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // STAFF
@@ -1879,16 +1891,19 @@ function deleteClient(id){if(!confirm('حذف هذا الموكل؟'))return;DB.
 function addStaff(){
   const editId=document.getElementById('editStaffId').value;
   const name=document.getElementById('staffName').value.trim();
-  if(!name){showToast('الرجاء إدخال الاسم','error');return;}
+  if(!name){ showToast('الرجاء إدخال الاسم','error'); return; }
   const data={name,role:document.getElementById('staffRole').value,spec:document.getElementById('staffSpec').value,license:document.getElementById('staffLicense').value.trim(),phone:document.getElementById('staffPhone').value.trim(),email:document.getElementById('staffEmail').value.trim(),salary:+document.getElementById('staffSalary').value||0,joinDate:document.getElementById('staffJoinDate').value,notes:document.getElementById('staffNotes').value.trim(),photo:document.getElementById('staffPhotoData').value||''};
-  if(editId){const s=DB.staff.find(x=>x.id===editId);if(s)Object.assign(s,data);logActivity('تعديل موظف: '+name);}
-  else{DB.staff.push({id:genId(),...data});logActivity('إضافة موظف: '+name);}
-  saveDB();closeModal('addStaffModal');renderStaff();showToast(editId?'تم تعديل الموظف':'تم إضافة الموظف');
-  document.getElementById('editStaffId').value='';document.getElementById('staffModalTitle').textContent='إضافة موظف';document.getElementById('staffSaveBtn').textContent='حفظ';
-  document.getElementById('staffPhotoPreview').innerHTML='👤';document.getElementById('staffPhotoData').value='';
+  if(editId){ const s=DB.staff.find(x=>x.id===editId); if(s)Object.assign(s,data); logActivity('تعديل موظف: '+name); }
+  else{ DB.staff.push({id:genId(),...data}); logActivity('إضافة موظف: '+name); }
+  saveDB(); closeModal('addStaffModal'); renderStaff(); showToast(editId?'تم تعديل الموظف':'تم إضافة الموظف');
+  document.getElementById('editStaffId').value='';
+  document.getElementById('staffModalTitle').textContent='إضافة موظف';
+  document.getElementById('staffSaveBtn').textContent='حفظ';
+  document.getElementById('staffPhotoPreview').innerHTML='👤';
+  document.getElementById('staffPhotoData').value='';
 }
 function editStaff(id){
-  const s=DB.staff.find(x=>x.id===id);if(!s)return;
+  const s=DB.staff.find(x=>x.id===id); if(!s)return;
   document.getElementById('editStaffId').value=id;
   document.getElementById('staffModalTitle').textContent='تعديل الموظف';
   document.getElementById('staffSaveBtn').textContent='حفظ التعديلات';
@@ -1903,26 +1918,25 @@ function editStaff(id){
     document.getElementById('staffSalary').value=s.salary||0;
     document.getElementById('staffJoinDate').value=s.joinDate||'';
     document.getElementById('staffNotes').value=s.notes||'';
-    if(s.photo){document.getElementById('staffPhotoPreview').innerHTML=`<img src="${s.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;document.getElementById('staffPhotoData').value=s.photo;}
+    if(s.photo){ document.getElementById('staffPhotoPreview').innerHTML=`<img src="${s.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`; document.getElementById('staffPhotoData').value=s.photo; }
   },100);
 }
 function renderStaff(){
   const grid=document.getElementById('staffGrid');
   const empty=document.getElementById('staffEmpty');
-  if(!DB.staff.length){grid.innerHTML='';empty.style.display='block';return;}
+  if(!DB.staff.length){ grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
   const roleColor={محامي:'#C9A84C','محامي متدرب':'#F59E0B','مستشار قانوني':'#8B5CF6','موظف إداري':'#3B82F6',سكرتير:'#10B981',محاسب:'#6EE7B7',قهوجي:'#F97316','حارس أمن':'#9CA3AF',أخرى:'#7A7A7A'};
   grid.innerHTML=DB.staff.map(s=>{
     const cases=DB.cases.filter(c=>c.lawyerId===s.id).length;
     const todayRec=DB.attendance.find(a=>a.staffId===s.id&&a.date===new Date().toISOString().split('T')[0]);
     const aStatus=todayRec?(todayRec.status==='حاضر'||todayRec.status==='متأخر'?'badge-present':'badge-absent'):'badge-closed';
-    return`<div class="person-card">
+    return `<div class="person-card">
       <div class="card-header" style="background:linear-gradient(135deg,${roleColor[s.role]||'#8B6914'}aa,${roleColor[s.role]||'#C9A84C'});"></div>
       <div class="card-avatar">${s.photo?`<img src="${s.photo}" style="width:100%;height:100%;object-fit:cover;">`:'<span style="font-size:26px;">'+s.name[0]+'</span>'}</div>
       <div class="card-body">
         <div style="font-size:14px;font-weight:800;margin-bottom:3px;">${s.name}</div>
         <div style="font-size:10px;padding:2px 8px;border-radius:9px;background:rgba(255,255,255,.06);color:${roleColor[s.role]||'#C9A84C'};display:inline-block;margin-bottom:10px;border:1px solid rgba(255,255,255,.1);">${s.role}</div>
-        ${s.spec&&s.spec!=='غير محدد'?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><i class="fas fa-graduation-cap" style="color:var(--gold);margin-left:5px;width:14px;"></i>${s.spec}</div>`:''}
         ${s.phone?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><i class="fas fa-phone" style="color:var(--gold);margin-left:5px;width:14px;"></i>${s.phone}</div>`:''}
         ${s.salary?`<div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;"><i class="fas fa-money-bill-wave" style="color:var(--gold);margin-left:5px;width:14px;"></i>${s.salary.toLocaleString('ar-SA')} ر.س</div>`:''}
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
@@ -1930,7 +1944,7 @@ function renderStaff(){
           <span class="badge ${aStatus}">${todayRec?todayRec.status:'غير مسجل'}</span>
         </div>
         <div class="card-actions">
-          ${s.phone?`<button class="btn-whatsapp" onclick="openWhatsApp('${s.name}','${s.phone}','')"><i class="fab fa-whatsapp"></i> واتساب</button>`:''}
+          ${s.phone?`<button class="btn-whatsapp" onclick="openWhatsApp('${s.name}','${s.phone}','')"><i class="fab fa-whatsapp"></i></button>`:''}
           <button class="btn-edit" onclick="editStaff('${s.id}')"><i class="fas fa-edit"></i> تعديل</button>
           <button class="btn-danger btn-sm" onclick="deleteStaff('${s.id}')"><i class="fas fa-trash"></i></button>
         </div>
@@ -1938,7 +1952,7 @@ function renderStaff(){
     </div>`;
   }).join('');
 }
-function deleteStaff(id){if(!confirm('حذف هذا الموظف؟'))return;DB.staff=DB.staff.filter(s=>s.id!==id);saveDB();renderStaff();showToast('تم الحذف','warning');}
+function deleteStaff(id){ if(!confirm('حذف هذا الموظف؟'))return; DB.staff=DB.staff.filter(s=>s.id!==id); saveDB(); renderStaff(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // ATTENDANCE
@@ -1946,10 +1960,10 @@ function deleteStaff(id){if(!confirm('حذف هذا الموظف؟'))return;DB.s
 function addAttendance(){
   const staffId=document.getElementById('attendStaff').value;
   const date=document.getElementById('attendDateIn').value;
-  if(!staffId||!date){showToast('الرجاء اختيار الموظف والتاريخ','error');return;}
+  if(!staffId||!date){ showToast('الرجاء اختيار الموظف والتاريخ','error'); return; }
   DB.attendance=DB.attendance.filter(a=>!(a.staffId===staffId&&a.date===date));
   DB.attendance.push({id:genId(),staffId,date,timeIn:document.getElementById('attendTimeIn').value,timeOut:document.getElementById('attendTimeOut').value,status:document.getElementById('attendStatus').value,deduct:+document.getElementById('attendDeduct').value||0,note:document.getElementById('attendNote').value.trim()});
-  saveDB();logActivity('تسجيل حضور');closeModal('addAttendModal');renderAttendance();showToast('تم تسجيل الحضور');
+  saveDB(); logActivity('تسجيل حضور'); closeModal('addAttendModal'); renderAttendance(); showToast('تم تسجيل الحضور');
 }
 function renderAttendance(){
   const selDate=document.getElementById('attendDate')?.value||new Date().toISOString().split('T')[0];
@@ -1966,13 +1980,13 @@ function renderAttendance(){
     {label:'إجازة',val:leave,color:'var(--blue)',icon:'fa-umbrella-beach'},
     {label:'إجمالي الخصومات',val:totalDeduct.toLocaleString('ar-SA')+' ر.س',color:'var(--warning)',icon:'fa-minus-circle'}
   ].map(s=>`<div class="stat-card" style="--accent:linear-gradient(90deg,${s.color},${s.color});"><div style="font-size:9px;color:var(--text-muted);font-weight:700;margin-bottom:6px;">${s.label}</div><div style="font-size:22px;font-weight:900;color:${s.color};">${s.val}</div></div>`).join('');
-  if(!records.length){tbody.innerHTML='';empty.style.display='block';return;}
+  if(!records.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
   tbody.innerHTML=records.map(a=>{
     const s=DB.staff.find(x=>x.id===a.staffId);
     const hrs=calcHours(a.timeIn,a.timeOut);
     const sc={حاضر:'badge-present',متأخر:'badge-pending',غائب:'badge-absent',إجازة:'badge-blue'};
-    return`<tr>
+    return `<tr>
       <td><div style="display:flex;align-items:center;gap:8px;">${renderAvatar(s?.photo,s?.name||'?',26,10)}${s?s.name:'غير معروف'}</div></td>
       <td>${s?s.role:'-'}</td><td>${formatDate(a.date)}</td><td>${a.timeIn||'-'}</td><td>${a.timeOut||'-'}</td>
       <td>${hrs>0?hrs+' ساعة':'-'}</td>
@@ -1982,16 +1996,16 @@ function renderAttendance(){
     </tr>`;
   }).join('');
 }
-function deleteAttend(id){DB.attendance=DB.attendance.filter(a=>a.id!==id);saveDB();renderAttendance();showToast('تم الحذف','warning');}
+function deleteAttend(id){ DB.attendance=DB.attendance.filter(a=>a.id!==id); saveDB(); renderAttendance(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // SESSIONS
 // ============================================================
 function addSession(){
   const date=document.getElementById('sessionDate').value;
-  if(!date){showToast('الرجاء إدخال التاريخ','error');return;}
+  if(!date){ showToast('الرجاء إدخال التاريخ','error'); return; }
   DB.sessions.push({id:genId(),caseId:document.getElementById('sessionCase').value,date,time:document.getElementById('sessionTime').value,court:document.getElementById('sessionCourt').value.trim(),notes:document.getElementById('sessionNotes').value.trim()});
-  saveDB();logActivity('إضافة جلسة');closeModal('addSessionModal');renderCalendar();showToast('تم إضافة الجلسة');checkSessionAlerts();
+  saveDB(); logActivity('إضافة جلسة'); closeModal('addSessionModal'); renderCalendar(); showToast('تم إضافة الجلسة'); checkSessionAlerts();
 }
 function renderCalendar(){
   const months=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
@@ -2001,7 +2015,7 @@ function renderCalendar(){
   const todayStr=new Date().toISOString().split('T')[0];
   const sessionDates=new Set(DB.sessions.map(s=>s.date));
   let html='';
-  for(let i=0;i<firstDay;i++)html+='<div></div>';
+  for(let i=0;i<firstDay;i++) html+='<div></div>';
   for(let d=1;d<=daysInMonth;d++){
     const ds=`${calDate.getFullYear()}-${String(calDate.getMonth()+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     html+=`<div class="cal-day ${ds===todayStr?'today':''} ${sessionDates.has(ds)?'has-event':''}" onclick="showDaySessions('${ds}')">${d}</div>`;
@@ -2022,15 +2036,11 @@ function renderCalendar(){
       </div>
     </div>`).join(''):'<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:20px;">لا توجد جلسات</p>';
 }
-function openWhatsAppSession(caseId){
-  const c=DB.cases.find(x=>x.id===caseId);if(!c)return;
-  const client=DB.clients.find(x=>x.id===c.clientId);if(!client||!client.phone){showToast('لا يوجد رقم هاتف للموكل','error');return;}
-  openWhatsApp(client.name,client.phone,c.num);
-}
-function deleteSession(id){if(!confirm('حذف هذه الجلسة؟'))return;DB.sessions=DB.sessions.filter(s=>s.id!==id);saveDB();renderCalendar();showToast('تم الحذف','warning');checkSessionAlerts();}
-function showDaySessions(ds){const d=DB.sessions.filter(s=>s.date===ds);if(d.length)showToast(`${d.length} جلسة في ${formatDate(ds)}`,'info');}
-function prevMonth(){calDate.setMonth(calDate.getMonth()-1);renderCalendar();}
-function nextMonth(){calDate.setMonth(calDate.getMonth()+1);renderCalendar();}
+function openWhatsAppSession(caseId){ const c=DB.cases.find(x=>x.id===caseId); if(!c)return; const client=DB.clients.find(x=>x.id===c.clientId); if(!client||!client.phone){ showToast('لا يوجد رقم هاتف للموكل','error'); return; } openWhatsApp(client.name,client.phone,c.num); }
+function deleteSession(id){ if(!confirm('حذف هذه الجلسة؟'))return; DB.sessions=DB.sessions.filter(s=>s.id!==id); saveDB(); renderCalendar(); showToast('تم الحذف','warning'); checkSessionAlerts(); }
+function showDaySessions(ds){ const d=DB.sessions.filter(s=>s.date===ds); if(d.length) showToast(`${d.length} جلسة في ${formatDate(ds)}`,'info'); }
+function prevMonth(){ calDate.setMonth(calDate.getMonth()-1); renderCalendar(); }
+function nextMonth(){ calDate.setMonth(calDate.getMonth()+1); renderCalendar(); }
 
 // ============================================================
 // SESSION HISTORY
@@ -2038,21 +2048,21 @@ function nextMonth(){calDate.setMonth(calDate.getMonth()+1);renderCalendar();}
 function addSessionLog(){
   const caseId=document.getElementById('sessionLogCase').value;
   const date=document.getElementById('sessionLogDate').value;
-  if(!caseId||!date){showToast('الرجاء اختيار القضية والتاريخ','error');return;}
+  if(!caseId||!date){ showToast('الرجاء اختيار القضية والتاريخ','error'); return; }
   const editId=document.getElementById('editSessionLogId').value;
   const data={caseId,date,court:document.getElementById('sessionLogCourt').value.trim(),judge:document.getElementById('sessionLogJudge').value.trim(),result:document.getElementById('sessionLogResult').value,what:document.getElementById('sessionLogWhat').value.trim(),notes:document.getElementById('sessionLogNotes').value.trim(),nextDate:document.getElementById('sessionLogNext').value,createdAt:new Date().toISOString()};
-  if(editId){const l=DB.sessionLogs.find(x=>x.id===editId);if(l)Object.assign(l,data);}
+  if(editId){ const l=DB.sessionLogs.find(x=>x.id===editId); if(l)Object.assign(l,data); }
   else DB.sessionLogs.push({id:genId(),...data});
-  saveDB();logActivity('تسجيل جلسة منتهية: '+getCaseName(caseId));closeModal('addSessionLogModal');renderSessionHistory();showToast('تم حفظ سجل الجلسة');
+  saveDB(); logActivity('تسجيل جلسة منتهية: '+getCaseName(caseId)); closeModal('addSessionLogModal'); renderSessionHistory(); showToast('تم حفظ سجل الجلسة');
   document.getElementById('editSessionLogId').value='';
-  ['sessionLogCourt','sessionLogJudge','sessionLogWhat','sessionLogNotes','sessionLogNext'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['sessionLogCourt','sessionLogJudge','sessionLogWhat','sessionLogNotes','sessionLogNext'].forEach(id=>{ const el=document.getElementById(id); if(el)el.value=''; });
 }
 function renderSessionHistory(){
   const filter=document.getElementById('historyFilterCase');
-  if(filter){const cur=filter.value;filter.innerHTML='<option value="">كل القضايا</option>';DB.cases.forEach(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.num+' - '+getClientName(c.clientId);filter.appendChild(o);});filter.value=cur;}
+  if(filter){ const cur=filter.value; filter.innerHTML='<option value="">كل القضايا</option>'; DB.cases.forEach(c=>{ const o=document.createElement('option'); o.value=c.id; o.textContent=c.num+' - '+getClientName(c.clientId); filter.appendChild(o); }); filter.value=cur; }
   const filterVal=document.getElementById('historyFilterCase')?.value||'';
   let logs=[...DB.sessionLogs].sort((a,b)=>new Date(b.date)-new Date(a.date));
-  if(filterVal)logs=logs.filter(l=>l.caseId===filterVal);
+  if(filterVal) logs=logs.filter(l=>l.caseId===filterVal);
   document.getElementById('totalSessionLogs').textContent=logs.length;
   const resultColors={تأجيل:'var(--warning)','حكم صادر':'var(--success)','تسوية ودية':'var(--gold)',مرافعة:'var(--blue)',غياب:'var(--danger)',أخرى:'var(--text-muted)'};
   document.getElementById('sessionHistoryList').innerHTML=logs.length?logs.map(l=>`
@@ -2070,23 +2080,22 @@ function renderSessionHistory(){
       <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;display:flex;gap:14px;flex-wrap:wrap;">
         <span><i class="fas fa-calendar" style="color:var(--gold);margin-left:4px;"></i>${formatDate(l.date)}</span>
         ${l.court?`<span><i class="fas fa-building" style="color:var(--gold);margin-left:4px;"></i>${l.court}</span>`:''}
-        ${l.judge?`<span><i class="fas fa-user-tie" style="color:var(--gold);margin-left:4px;"></i>${l.judge}</span>`:''}
-        ${l.nextDate?`<span><i class="fas fa-calendar-plus" style="color:var(--warning);margin-left:4px;"></i>الجلسة القادمة: ${formatDate(l.nextDate)}</span>`:''}
+        ${l.nextDate?`<span><i class="fas fa-calendar-plus" style="color:var(--warning);margin-left:4px;"></i>القادمة: ${formatDate(l.nextDate)}</span>`:''}
       </div>
-      ${l.what?`<div style="font-size:12px;margin-bottom:6px;line-height:1.6;"><strong style="color:var(--gold);font-size:10px;display:block;margin-bottom:3px;">ما حدث في الجلسة:</strong>${l.what}</div>`:''}
+      ${l.what?`<div style="font-size:12px;margin-bottom:6px;line-height:1.6;"><strong style="color:var(--gold);font-size:10px;display:block;margin-bottom:3px;">ما حدث:</strong>${l.what}</div>`:''}
       ${l.notes?`<div style="font-size:11px;color:var(--text-muted);background:rgba(201,168,76,.05);padding:7px 10px;border-radius:7px;margin-top:6px;"><i class="fas fa-sticky-note" style="color:var(--gold);margin-left:5px;"></i>${l.notes}</div>`:''}
-    </div>`).join(''):'<div style="text-align:center;padding:40px;color:var(--text-muted);"><i class="fas fa-history" style="font-size:40px;opacity:.2;margin-bottom:12px;"></i><p>لا توجد سجلات جلسات</p></div>';
+    </div>`).join(''):'<div style="text-align:center;padding:40px;color:var(--text-muted);"><i class="fas fa-history" style="font-size:40px;opacity:.2;margin-bottom:12px;display:block;"></i><p>لا توجد سجلات جلسات</p></div>';
 }
-function deleteSessionLog(id){if(!confirm('حذف هذا السجل؟'))return;DB.sessionLogs=DB.sessionLogs.filter(l=>l.id!==id);saveDB();renderSessionHistory();showToast('تم الحذف','warning');}
+function deleteSessionLog(id){ if(!confirm('حذف هذا السجل؟'))return; DB.sessionLogs=DB.sessionLogs.filter(l=>l.id!==id); saveDB(); renderSessionHistory(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // TASKS
 // ============================================================
 function addTask(){
   const title=document.getElementById('taskTitle').value.trim();
-  if(!title){showToast('الرجاء إدخال عنوان المهمة','error');return;}
+  if(!title){ showToast('الرجاء إدخال عنوان المهمة','error'); return; }
   DB.tasks.push({id:genId(),title,priority:document.getElementById('taskPriority').value,due:document.getElementById('taskDue').value,ownerId:document.getElementById('taskOwner').value,caseId:document.getElementById('taskCase').value,status:'pending'});
-  saveDB();logActivity('إضافة مهمة: '+title);closeModal('addTaskModal');renderTasks();showToast('تم إضافة المهمة');
+  saveDB(); logActivity('إضافة مهمة: '+title); closeModal('addTaskModal'); renderTasks(); showToast('تم إضافة المهمة');
   document.getElementById('taskTitle').value='';
 }
 function renderTasks(){
@@ -2107,9 +2116,9 @@ function renderTasks(){
       </div>`).join(''):`<p style="color:var(--text-muted);font-size:11px;text-align:center;padding:12px;">لا توجد مهام</p>`;
   });
 }
-function moveTask(id,newStatus){const t=DB.tasks.find(x=>x.id===id);if(t){t.status=newStatus;saveDB();renderTasks();}}
-function deleteTask(id){DB.tasks=DB.tasks.filter(t=>t.id!==id);saveDB();renderTasks();showToast('تم الحذف','warning');}
-function toggleTask(id){const t=DB.tasks.find(x=>x.id===id);if(t){t.status=t.status==='done'?'pending':'done';saveDB();renderDashboard();}}
+function moveTask(id,newStatus){ const t=DB.tasks.find(x=>x.id===id); if(t){ t.status=newStatus; saveDB(); renderTasks(); } }
+function deleteTask(id){ DB.tasks=DB.tasks.filter(t=>t.id!==id); saveDB(); renderTasks(); showToast('تم الحذف','warning'); }
+function toggleTask(id){ const t=DB.tasks.find(x=>x.id===id); if(t){ t.status=t.status==='done'?'pending':'done'; saveDB(); renderDashboard(); } }
 
 // ============================================================
 // FINANCE
@@ -2117,9 +2126,9 @@ function toggleTask(id){const t=DB.tasks.find(x=>x.id===id);if(t){t.status=t.sta
 function addPayment(){
   const client=document.getElementById('payClient').value.trim();
   const amount=+document.getElementById('payAmount').value;
-  if(!client||!amount){showToast('الرجاء إدخال الموكل والمبلغ','error');return;}
+  if(!client||!amount){ showToast('الرجاء إدخال الموكل والمبلغ','error'); return; }
   DB.payments.push({id:genId(),client,caseId:document.getElementById('payCase').value,desc:document.getElementById('payDesc').value.trim(),type:document.getElementById('payType').value,amount,date:document.getElementById('payDate').value,status:document.getElementById('payStatus').value});
-  saveDB();logActivity('تسجيل دفعة: '+amount);closeModal('addPaymentModal');renderFinance();showToast('تم تسجيل الدفعة');
+  saveDB(); logActivity('تسجيل دفعة: '+amount); closeModal('addPaymentModal'); renderFinance(); showToast('تم تسجيل الدفعة');
 }
 function renderFinance(){
   const income=DB.payments.filter(p=>p.type==='إيراد').reduce((a,b)=>a+(+b.amount),0);
@@ -2130,7 +2139,7 @@ function renderFinance(){
   document.getElementById('stat-revenue').textContent=income.toLocaleString('ar-SA')+' ر.س';
   const tbody=document.getElementById('paymentsBody');
   const empty=document.getElementById('paymentsEmpty');
-  if(!DB.payments.length){tbody.innerHTML='';empty.style.display='block';return;}
+  if(!DB.payments.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
   tbody.innerHTML=[...DB.payments].reverse().map(p=>`
     <tr>
@@ -2143,7 +2152,7 @@ function renderFinance(){
       <td><button onclick="deletePayment('${p.id}')" class="btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
     </tr>`).join('');
 }
-function deletePayment(id){DB.payments=DB.payments.filter(p=>p.id!==id);saveDB();renderFinance();showToast('تم الحذف','warning');}
+function deletePayment(id){ DB.payments=DB.payments.filter(p=>p.id!==id); saveDB(); renderFinance(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // PAYROLL
@@ -2151,9 +2160,9 @@ function deletePayment(id){DB.payments=DB.payments.filter(p=>p.id!==id);saveDB()
 function addSalary(){
   const staffId=document.getElementById('salaryStaff').value;
   const month=document.getElementById('salaryMonth').value;
-  if(!staffId||!month){showToast('الرجاء اختيار الموظف والشهر','error');return;}
+  if(!staffId||!month){ showToast('الرجاء اختيار الموظف والشهر','error'); return; }
   DB.salaries.push({id:genId(),staffId,month,base:+document.getElementById('salaryBase').value||0,bonus:+document.getElementById('salaryBonus').value||0,deduct:+document.getElementById('salaryDeduct').value||0,status:document.getElementById('salaryStatus').value,note:document.getElementById('salaryNote').value.trim()});
-  saveDB();logActivity('صرف راتب');closeModal('addSalaryModal');renderPayroll();showToast('تم صرف الراتب');
+  saveDB(); logActivity('صرف راتب'); closeModal('addSalaryModal'); renderPayroll(); showToast('تم صرف الراتب');
 }
 function renderPayroll(){
   document.getElementById('totalSalaries').textContent=DB.salaries.reduce((a,b)=>a+(+b.base||0),0).toLocaleString('ar-SA')+' ر.س';
@@ -2161,12 +2170,12 @@ function renderPayroll(){
   document.getElementById('totalBonuses').textContent=DB.salaries.reduce((a,b)=>a+(+b.bonus||0),0).toLocaleString('ar-SA')+' ر.س';
   const tbody=document.getElementById('salaryBody');
   const empty=document.getElementById('salaryEmpty');
-  if(!DB.salaries.length){tbody.innerHTML='';empty.style.display='block';return;}
+  if(!DB.salaries.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
   tbody.innerHTML=[...DB.salaries].reverse().map(sal=>{
     const s=DB.staff.find(x=>x.id===sal.staffId);
     const net=(+sal.base||0)+(+sal.bonus||0)-(+sal.deduct||0);
-    return`<tr>
+    return `<tr>
       <td>${sal.month||'-'}</td><td>${s?s.name:'غير معروف'}</td><td>${s?s.role:'-'}</td>
       <td style="color:var(--gold);">${(+sal.base||0).toLocaleString('ar-SA')} ر.س</td>
       <td style="color:var(--success);">+${(+sal.bonus||0).toLocaleString('ar-SA')}</td>
@@ -2178,31 +2187,31 @@ function renderPayroll(){
     </tr>`;
   }).join('');
 }
-function deleteSalary(id){DB.salaries=DB.salaries.filter(s=>s.id!==id);saveDB();renderPayroll();showToast('تم الحذف','warning');}
+function deleteSalary(id){ DB.salaries=DB.salaries.filter(s=>s.id!==id); saveDB(); renderPayroll(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // DOCUMENTS
 // ============================================================
 function handleFileUpload(event){
   const files=event.target.files;
-  for(const file of files){DB.documents.push({id:genId(),name:file.name,cat:'أخرى',size:file.size,caseId:'',uploadedAt:new Date().toISOString()});}
-  saveDB();renderDocs();showToast('تم رفع '+files.length+' ملف');
+  for(const file of files){ DB.documents.push({id:genId(),name:file.name,cat:'أخرى',size:file.size,caseId:'',uploadedAt:new Date().toISOString()}); }
+  saveDB(); renderDocs(); showToast('تم رفع '+files.length+' ملف');
 }
 function addDoc(){
   const name=document.getElementById('docName').value.trim();
-  if(!name){showToast('الرجاء إدخال الاسم','error');return;}
+  if(!name){ showToast('الرجاء إدخال الاسم','error'); return; }
   DB.documents.push({id:genId(),name,cat:document.getElementById('docCat').value,caseId:document.getElementById('docCase').value,size:0,uploadedAt:new Date().toISOString()});
-  saveDB();logActivity('رفع مستند: '+name);closeModal('addDocModal');renderDocs();showToast('تم إضافة المستند');
+  saveDB(); logActivity('رفع مستند: '+name); closeModal('addDocModal'); renderDocs(); showToast('تم إضافة المستند');
 }
 function renderDocs(){
   const grid=document.getElementById('docsGrid');
   const empty=document.getElementById('docsEmpty');
-  if(!DB.documents.length){grid.innerHTML='';empty.style.display='block';return;}
+  if(!DB.documents.length){ grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
   const catIcons={توكيل:'fa-file-signature',عقد:'fa-file-contract',مذكرة:'fa-file-alt',حكم:'fa-gavel',شهادة:'fa-certificate',أخرى:'fa-file'};
   grid.innerHTML=DB.documents.map(d=>`
     <div class="glass-card" style="border-radius:11px;padding:14px;text-align:center;">
-      <i class="fas ${catIcons[d.cat]||'fa-file'}" style="font-size:32px;color:var(--gold);margin-bottom:9px;"></i>
+      <i class="fas ${catIcons[d.cat]||'fa-file'}" style="font-size:32px;color:var(--gold);margin-bottom:9px;display:block;"></i>
       <div style="font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${d.name}</div>
       <div style="font-size:10px;color:var(--text-muted);margin-top:3px;">${d.cat}</div>
       ${d.caseId?`<div style="font-size:10px;color:var(--gold);margin-top:2px;">${getCaseName(d.caseId)}</div>`:''}
@@ -2210,14 +2219,14 @@ function renderDocs(){
       <button onclick="deleteDoc('${d.id}')" class="btn-danger btn-sm" style="margin-top:8px;"><i class="fas fa-trash"></i></button>
     </div>`).join('');
 }
-function deleteDoc(id){DB.documents=DB.documents.filter(d=>d.id!==id);saveDB();renderDocs();showToast('تم الحذف','warning');}
+function deleteDoc(id){ DB.documents=DB.documents.filter(d=>d.id!==id); saveDB(); renderDocs(); showToast('تم الحذف','warning'); }
 
 // ============================================================
 // AI ASSISTANT
 // ============================================================
 async function sendAI(){
   const input=document.getElementById('aiInput');
-  const msg=input.value.trim();if(!msg)return;
+  const msg=input.value.trim(); if(!msg)return;
   input.value='';
   const chat=document.getElementById('aiChat');
   chat.innerHTML+=`<div style="display:flex;flex-direction:row-reverse;gap:10px;align-items:flex-start;"><div class="avatar" style="width:30px;height:30px;font-size:12px;flex-shrink:0;">م</div><div class="user-bubble" style="max-width:80%;">${msg}</div></div>`;
@@ -2227,11 +2236,11 @@ async function sendAI(){
   chat.scrollTop=chat.scrollHeight;
   let reply='';
   try{
-    const sys=`أنت مساعد قانوني ذكي لمؤسسة AGM للمحاماة. المدير: مصطفى محمد أباظة. أجب بالعربية. البيانات: ${DB.cases.length} قضية، ${DB.clients.length} موكل، ${DB.staff.length} موظف.`;
+    const sys=`أنت مساعد قانوني ذكي لمؤسسة AGM للمحاماة. المدير: مصطفى محمد أباظة. أجب بالعربية فقط. البيانات الحالية: ${DB.cases.length} قضية، ${DB.clients.length} موكل، ${DB.staff.length} موظف.`;
     const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:[{role:'user',content:msg}]})});
     const data=await res.json();
     reply=data.content?.map(b=>b.text||'').join('')||'عذراً، لم أتمكن من معالجة طلبك.';
-  }catch(e){reply='عذراً، حدث خطأ في الاتصال.';}
+  }catch(e){ reply='عذراً، حدث خطأ في الاتصال.'; }
   document.getElementById(tid)?.remove();
   chat.innerHTML+=`<div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:30px;height:30px;background:linear-gradient(135deg,#1A2550,#2563EB);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">🤖</div><div class="ai-bubble" style="max-width:80%;">${reply.replace(/\n/g,'<br>')}</div></div>`;
   chat.scrollTop=chat.scrollHeight;
@@ -2242,47 +2251,54 @@ async function sendAI(){
 // ============================================================
 function saveSettings(){
   DB.settings={officeName:document.getElementById('officeName').value,officeManager:document.getElementById('officeManager').value,officeAddress:document.getElementById('officeAddress').value,officePhone:document.getElementById('officePhone').value,officeEmail:document.getElementById('officeEmail').value};
-  saveDB();logActivity('حفظ إعدادات');showToast('تم حفظ الإعدادات');
+  saveDB(); logActivity('حفظ إعدادات'); showToast('تم حفظ الإعدادات');
 }
 function renderSettings(){
   const s=DB.settings||{};
-  if(s.officeName)document.getElementById('officeName').value=s.officeName;
-  if(s.officeManager)document.getElementById('officeManager').value=s.officeManager;
-  if(s.officeAddress)document.getElementById('officeAddress').value=s.officeAddress||'';
-  if(s.officePhone)document.getElementById('officePhone').value=s.officePhone||'';
-  if(s.officeEmail)document.getElementById('officeEmail').value=s.officeEmail||'';
+  if(s.officeName) document.getElementById('officeName').value=s.officeName;
+  if(s.officeManager) document.getElementById('officeManager').value=s.officeManager;
+  if(s.officeAddress) document.getElementById('officeAddress').value=s.officeAddress||'';
+  if(s.officePhone) document.getElementById('officePhone').value=s.officePhone||'';
+  if(s.officeEmail) document.getElementById('officeEmail').value=s.officeEmail||'';
   const log=DB.activityLog||[];
-  document.getElementById('activityLog').innerHTML=log.slice(0,20).map(e=>`<div style="padding:3px 0;border-bottom:1px solid var(--glass-border);">${e.action} <span style="float:left;font-size:9px;">${e.time}</span></div>`).join('')||'<p>لا توجد أنشطة</p>';
+  document.getElementById('activityLog').innerHTML=log.slice(0,20).map(e=>`<div style="padding:3px 0;border-bottom:1px solid var(--glass-border);">${e.action} <span style="float:left;font-size:9px;">${e.time}</span></div>`).join('')||'<p>لا توجد أنشطة بعد</p>';
+  updateStorageIndicator();
 }
+
+// ============================================================
+// BACKUP / RESTORE
+// ============================================================
 function backupData(){
   const blob=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download=`AGM-backup-${new Date().toISOString().split('T')[0]}.json`;a.click();
+  const a=document.createElement('a'); a.href=url; a.download=`AGM-backup-${new Date().toISOString().split('T')[0]}.json`; a.click();
   showToast('تم تحميل النسخة الاحتياطية');
 }
 function restoreData(event){
-  const file=event.target.files[0];if(!file)return;
+  const file=event.target.files[0]; if(!file)return;
+  if(!confirm('سيتم استبدال البيانات الحالية. هل أنت متأكد؟'))return;
   const reader=new FileReader();
-  reader.onload=e=>{try{DB=JSON.parse(e.target.result);saveDB();showToast('تم استعادة البيانات');refreshPage(currentPage);}catch(err){showToast('خطأ في قراءة الملف','error');}};
+  reader.onload=e=>{ try{ DB=JSON.parse(e.target.result); saveDB(); showToast('تم استعادة البيانات'); refreshPage(currentPage); }catch(err){ showToast('خطأ في قراءة الملف','error'); } };
   reader.readAsText(file);
+  event.target.value='';
 }
 function exportExcel(){
   const rows=[['رقم القضية','الموكل','النوع','المحكمة','المحامي','الحالة','الأتعاب','المدفوع']];
   DB.cases.forEach(c=>rows.push([c.num,getClientName(c.clientId),c.type,c.court,getStaffName(c.lawyerId),c.status,c.fee||0,c.paid||0]));
-  rows.push([]);rows.push(['الموظف','الوظيفة','الراتب']);
+  rows.push([]); rows.push(['الموظف','الوظيفة','الراتب']);
   DB.staff.forEach(s=>rows.push([s.name,s.role,s.salary||0]));
   const csv=rows.map(r=>r.join(',')).join('\n');
   const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download='AGM_Report.csv';a.click();
+  const a=document.createElement('a'); a.href=url; a.download='AGM_Report.csv'; a.click();
   showToast('تم تصدير البيانات');
 }
 function clearAllData(){
-  if(!confirm('⚠️ سيتم مسح جميع البيانات نهائياً. هل أنت متأكد؟'))return;
-  DB={cases:[],clients:[],staff:[],sessions:[],tasks:[],payments:[],documents:[],attendance:[],salaries:[],settings:{},activityLog:[],sessionLogs:[],version:'4.0',initialized:false};
-  saveDB();showToast('تم مسح البيانات','warning');refreshPage(currentPage);
+  if(!confirm('⚠️ سيتم مسح جميع البيانات نهائياً. هل أنت متأكد تماماً؟'))return;
+  DB={cases:[],clients:[],staff:[],sessions:[],tasks:[],payments:[],documents:[],attendance:[],salaries:[],settings:{},activityLog:[],sessionLogs:[],version:'5.0'};
+  saveDB(); showToast('تم مسح البيانات','warning'); refreshPage(currentPage);
 }
-function exportPDF(){window.print();}
+function exportPDF(){ window.print(); }
 
 // ============================================================
 // GLOBAL SEARCH
@@ -2291,36 +2307,23 @@ function globalSearchFn(){
   const q=document.getElementById('globalSearch').value.toLowerCase().trim();
   if(!q)return;
   const found=DB.cases.filter(c=>c.num.toLowerCase().includes(q)||getClientName(c.clientId).toLowerCase().includes(q));
-  if(found.length){showPage('cases');setTimeout(()=>{document.getElementById('caseSearch').value=q;renderCases();},100);}
+  if(found.length){ showPage('cases'); setTimeout(()=>{ document.getElementById('caseSearch').value=q; renderCases(); },100); }
 }
-
-// ============================================================
-// RESPONSIVE
-// ============================================================
-function handleResize(){
-  const isMobile=window.innerWidth<769;
-  document.getElementById('desktopMenuToggle').style.display=isMobile?'block':'none';
-  document.getElementById('sidebarCloseBtn').style.display=
-    (isMobile&&document.getElementById('sidebar').classList.contains('open'))?'block':'none';
-  if(!isMobile){
-    closeSidebar();
-    document.getElementById('sidebar').style.transform='';
-  }
-}
-window.addEventListener('resize',handleResize);
 
 // ============================================================
 // INIT
 // ============================================================
 function initApp(){
-  handleResize();
   renderDashboard();
   checkSessionAlerts();
-  setInterval(checkSessionAlerts,60000);
-  if('Notification'in window&&Notification.permission==='default'){
-    setTimeout(()=>{document.getElementById('notifPermBanner').style.display='flex';},2000);
-  }
+  setInterval(checkSessionAlerts, 60000);
+  updateStorageIndicator();
 }
+
+// AUTO LOGIN CHECK on page load
+window.addEventListener('DOMContentLoaded', ()=>{
+  checkAutoLogin();
+});
 </script>
 </body>
 </html>
