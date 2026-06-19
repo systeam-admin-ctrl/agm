@@ -5,13 +5,13 @@
     {
       "id": "_3y4dxru8fmqlbo1zh",
       "name": "esla",
-      "role": "محامي متدرب",
-      "spec": "غير محدد",
+      "role": "محامي",
+      "spec": "قانون مدني",
       "license": "",
-      "phone": "+201004553806",
+      "phone": "",
       "email": "",
-      "salary": 1500,
-      "joinDate": "2026-06-19",
+      "salary": 0,
+      "joinDate": "",
       "notes": "",
       "photo": ""
     }
@@ -22,15 +22,17 @@
   "documents": [],
   "attendance": [],
   "salaries": [],
-  "settings": {},
+  "settings": {
+    "officeName": "AMG للمحاماة والاستشارات القانونية",
+    "officeManager": "مصطفى محمد أباظة",
+    "officeAddress": "",
+    "officePhone": "",
+    "officeEmail": ""
+  },
   "activityLog": [
     {
-      "action": "تعديل موظف: esla",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٣٠:٢٦ م"
-    },
-    {
-      "action": "مزامنة مع GitHub",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٢٩:٥٢ م"
+      "action": "إضافة موظف: esla",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٢٨:٥٨ م"
     }
   ],
   "sessionLogs": [],
