@@ -22,17 +22,15 @@
   "documents": [],
   "attendance": [],
   "salaries": [],
-  "settings": {
-    "officeName": "AMG للمحاماة والاستشارات القانونية",
-    "officeManager": "مصطفى محمد أباظة",
-    "officeAddress": "",
-    "officePhone": "",
-    "officeEmail": ""
-  },
+  "settings": {},
   "activityLog": [
     {
-      "action": "إضافة موظف: خالد شريف",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٤٣:٢٨ م"
+      "action": "تعديل موظف: esla",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٣٠:٢٦ م"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٢٩:٥٢ م"
     }
   ],
   "sessionLogs": [],
