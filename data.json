@@ -5,7 +5,7 @@
       "num": "2026-456",
       "type": "مدني",
       "clientId": "_0al6o2f7umqlcdhtc",
-      "lawyerId": "",
+      "lawyerId": "_rjkk49hk7mqlc6pch",
       "court": "جنوب",
       "division": "شرق",
       "date": "2026-06-22",
@@ -118,33 +118,15 @@
     }
   ],
   "salaries": [],
-  "settings": {
-    "officeName": "AMG للمحاماة والاستشارات القانونية",
-    "officeManager": "مصطفى محمد أباظة",
-    "officeAddress": "الشرقيه - المنتزه - امام المحكمه (جنوب)",
-    "officePhone": "+201090431209",
-    "officeEmail": ""
-  },
+  "settings": {},
   "activityLog": [
     {
-      "action": "مزامنة مع GitHub",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١:٣٩:٥٥ م"
-    },
-    {
-      "action": "إضافة مهمة: خه",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١:٣٩:٥١ م"
-    },
-    {
-      "action": "إضافة موكل: محمود محمد",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٤٨:٤٥ م"
+      "action": "تعديل موظف: esla",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٣٠:٢٦ م"
     },
     {
       "action": "مزامنة مع GitHub",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٣٨:٢٤ م"
-    },
-    {
-      "action": "حفظ إعدادات",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٣٨:٢٠ م"
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٢٩:٥٢ م"
     }
   ],
   "sessionLogs": [],
