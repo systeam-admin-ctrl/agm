@@ -83,7 +83,17 @@
       "notes": ""
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "_acvck2t3smqldj5g0",
+      "title": "hfgdv",
+      "priority": "عادية",
+      "due": "2026-06-19",
+      "ownerId": "_rjkk49hk7mqlc6pch",
+      "caseId": "_epn0ei7ssmqlcgml0",
+      "status": "pending"
+    }
+  ],
   "payments": [],
   "documents": [],
   "attendance": [
@@ -108,8 +118,8 @@
   },
   "activityLog": [
     {
-      "action": "إضافة جلسة",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١:٢٠:٠٨ م"
+      "action": "إضافة مهمة: hfgdv",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١:٢١:٠٩ م"
     },
     {
       "action": "إضافة موكل: محمود محمد",
