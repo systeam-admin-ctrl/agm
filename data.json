@@ -11,11 +11,20 @@
   "settings": {
     "officeName": "AMG للمحاماة والاستشارات القانونية",
     "officeManager": "مصطفى محمد أباظة",
-    "officeAddress": "",
-    "officePhone": "",
+    "officeAddress": "الشرقيه",
+    "officePhone": "+20112396129",
     "officeEmail": ""
   },
-  "activityLog": [],
+  "activityLog": [
+    {
+      "action": "حفظ إعدادات",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٠٢:٠١ م"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٠١:٥١ م"
+    }
+  ],
   "sessionLogs": [],
   "version": "6.0"
 }
