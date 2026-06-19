@@ -103,7 +103,18 @@
       "status": "pending"
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "id": "_za9fvyfzcmqleoqtb",
+      "client": "محمود",
+      "caseId": "_epn0ei7ssmqlcgml0",
+      "desc": "",
+      "type": "مصروف",
+      "amount": 1500,
+      "date": "2026-06-19",
+      "status": "مدفوع"
+    }
+  ],
   "documents": [],
   "attendance": [
     {
@@ -127,8 +138,8 @@
   },
   "activityLog": [
     {
-      "action": "حفظ إعدادات",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١١:٤٩:٥٨ م"
+      "action": "تسجيل دفعة: 1500 ج.م",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١١:٥٣:٢٩ م"
     }
   ],
   "sessionLogs": [],
