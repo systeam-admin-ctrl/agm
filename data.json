@@ -62,7 +62,18 @@
   "tasks": [],
   "payments": [],
   "documents": [],
-  "attendance": [],
+  "attendance": [
+    {
+      "id": "_bz74vjmrqmqlckltv",
+      "staffId": "_rjkk49hk7mqlc6pch",
+      "date": "2026-06-19",
+      "timeIn": "12:54",
+      "timeOut": "17:58",
+      "status": "حاضر",
+      "deduct": 0,
+      "note": ""
+    }
+  ],
   "salaries": [],
   "settings": {
     "officeName": "AMG للمحاماة والاستشارات القانونية",
@@ -73,8 +84,8 @@
   },
   "activityLog": [
     {
-      "action": "إضافة جلسة",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٥٢:٣٢ م"
+      "action": "تسجيل حضور",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٥٤:١٧ م"
     },
     {
       "action": "إضافة موكل: محمود محمد",
