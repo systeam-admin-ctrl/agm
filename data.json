@@ -8,8 +8,19 @@
   "documents": [],
   "attendance": [],
   "salaries": [],
-  "settings": {},
-  "activityLog": [],
+  "settings": {
+    "officeName": "AMG للمحاماة والاستشارات القانونية",
+    "officeManager": "مصطفى محمد أباظة",
+    "officeAddress": "الشرقيه - المنتزه - امام المحكمه (جنوب)",
+    "officePhone": "+201090431209",
+    "officeEmail": ""
+  },
+  "activityLog": [
+    {
+      "action": "حفظ إعدادات",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٣٨:٢٠ م"
+    }
+  ],
   "sessionLogs": [],
   "version": "6.0"
 }
