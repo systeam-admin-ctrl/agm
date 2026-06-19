@@ -15,12 +15,7 @@
     "officePhone": "",
     "officeEmail": ""
   },
-  "activityLog": [
-    {
-      "action": "حفظ إعدادات",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٠٠:٤٤ م"
-    }
-  ],
+  "activityLog": [],
   "sessionLogs": [],
   "version": "6.0"
 }
