@@ -1144,10 +1144,6 @@ body.light .session-log-item{background:var(--dark3);}
       <button onclick="closeModal('caseDetailModal')" style="background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;">×</button>
     </div>
     <div id="caseDetailContent"></div>
-    <div id="qrcodeBox" style="margin-top:14px;padding:14px;background:var(--dark3);border-radius:12px;display:flex;align-items:center;gap:14px;">
-      <div id="qrcode"></div>
-      <div><div style="font-size:12px;font-weight:700;color:var(--gold);">QR Code القضية</div><div style="font-size:10px;color:var(--text-muted);margin-top:3px;">امسح لفتح بيانات القضية</div></div>
-    </div>
     <div style="display:flex;gap:8px;margin-top:16px;justify-content:flex-end;">
       <button class="btn-outline" onclick="window.print()"><i class="fas fa-print"></i> طباعة</button>
       <button class="btn-gold" onclick="closeModal('caseDetailModal')">إغلاق</button>
@@ -1349,7 +1345,6 @@ async function fetchFromGitHub() {
         
         if (readResp.ok) {
             const data = await readResp.json();
-            // فك التشفير بشكل صحيح للغة العربية
             const content = decodeURIComponent(escape(atob(data.content)));
             const remoteDB = JSON.parse(content);
             
@@ -1423,7 +1418,6 @@ async function syncWithGitHub() {
         let fileExists = false;
         let remoteData = null;
         
-        // قراءة الملف من GitHub
         try {
             const readResp = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
                 headers: {
@@ -1436,7 +1430,6 @@ async function syncWithGitHub() {
                 const data = await readResp.json();
                 sha = data.sha;
                 fileExists = true;
-                // فك التشفير بشكل صحيح للغة العربية
                 const content = decodeURIComponent(escape(atob(data.content)));
                 remoteData = JSON.parse(content);
                 console.log('✅ تم قراءة الملف من GitHub');
@@ -1468,9 +1461,8 @@ async function syncWithGitHub() {
             }
         }
         
-        // رفع البيانات إلى GitHub مع ترميز صحيح للغة العربية
+        // رفع البيانات إلى GitHub
         const jsonData = JSON.stringify(DB, null, 2);
-        // استخدام encodeURIComponent لضمان عرض النصوص العربية بشكل صحيح
         const content = btoa(unescape(encodeURIComponent(jsonData)));
         
         const body = {
@@ -1788,11 +1780,16 @@ function toggleTheme(){
 (function(){ const t=localStorage.getItem('amgTheme'); if(t==='light'){ isDark=false; document.body.classList.add('light'); document.getElementById('themeIcon').className='fas fa-moon'; } })();
 
 // ============================================================
-// SESSION ALERTS
+// SESSION ALERTS - شغال
 // ============================================================
 function checkSessionAlerts(){
   const today = new Date(); today.setHours(0,0,0,0);
-  const alerts = DB.sessions.filter(s=>{ const d=new Date(s.date); d.setHours(0,0,0,0); const diff=(d-today)/(1000*60*60*24); return diff>=0&&diff<=3; });
+  const alerts = DB.sessions.filter(s=>{ 
+    const d=new Date(s.date); 
+    d.setHours(0,0,0,0); 
+    const diff=(d-today)/(1000*60*60*24); 
+    return diff>=0 && diff<=3; 
+  });
   const el = document.getElementById('sessionAlerts');
   if(el && alerts.length){
     el.innerHTML = alerts.map(s=>{
@@ -1801,11 +1798,15 @@ function checkSessionAlerts(){
       const label=diff===0?'⚡ اليوم':diff===1?'غداً':`بعد ${diff} أيام`;
       return `<div class="alert-banner"><div class="urgent-dot"></div><i class="fas fa-exclamation-triangle" style="color:var(--warning);font-size:16px;"></i><div style="flex:1;"><span style="font-size:13px;font-weight:700;color:var(--gold);">جلسة قريبة: ${getCaseName(s.caseId)}</span><span style="font-size:11px;color:var(--text-muted);margin-right:10px;">${s.court||''} - ${formatDate(s.date)} ${s.time?'الساعة '+s.time:''}</span></div><span class="badge badge-urgent">${label}</span></div>`;
     }).join('');
-  } else if(el) el.innerHTML='';
+  } else if(el) el.innerHTML = '';
 
   const notifList = document.getElementById('notifList');
   const badge = document.getElementById('notifBadge');
-  if(!alerts.length){ if(notifList) notifList.innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">لا توجد جلسات قريبة</p>'; if(badge) badge.style.display='none'; return; }
+  if(!alerts.length){ 
+    if(notifList) notifList.innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">لا توجد جلسات قريبة</p>'; 
+    if(badge) badge.style.display='none'; 
+    return; 
+  }
   if(badge){ badge.style.display='flex'; badge.textContent=alerts.length; }
   if(notifList) notifList.innerHTML = alerts.map(s=>{
     const d=new Date(s.date); d.setHours(0,0,0,0);
@@ -1814,6 +1815,7 @@ function checkSessionAlerts(){
     return `<div style="padding:10px 14px;border-bottom:1px solid var(--glass-border);display:flex;gap:10px;align-items:flex-start;"><div style="width:8px;height:8px;background:var(--danger);border-radius:50%;margin-top:5px;flex-shrink:0;"></div><div><div style="font-size:12px;font-weight:600;">جلسة: ${getCaseName(s.caseId)}</div><div style="font-size:10px;color:var(--text-muted);">${label} - ${s.court||''} ${s.time?'| '+s.time:''}</div></div></div>`;
   }).join('');
 }
+
 function toggleNotif(){ document.getElementById('notifPanel').classList.toggle('active'); }
 function clearNotifs(){ document.getElementById('notifList').innerHTML='<p style="padding:14px;color:var(--text-muted);font-size:12px;text-align:center;">تم مسح التنبيهات</p>'; document.getElementById('notifBadge').style.display='none'; document.getElementById('notifPanel').classList.remove('active'); }
 document.addEventListener('click', e=>{ const p=document.getElementById('notifPanel'); if(p&&!p.contains(e.target)&&!e.target.closest('[onclick="toggleNotif()"]')) p.classList.remove('active'); });
@@ -1959,7 +1961,9 @@ function renderCases(){
   const search=(document.getElementById('caseSearch')?.value||'').toLowerCase();
   const filter=document.getElementById('caseFilter')?.value||'';
   let cases=DB.cases.filter(c=>{
-    const match=!search||c.num.toLowerCase().includes(search)||getClientName(c.clientId).toLowerCase().includes(search)||c.court.toLowerCase().includes(search)||c.type.toLowerCase().includes(search);
+    // بحث بأي كلمة في جميع الحقول
+    const searchText = (c.num + ' ' + getClientName(c.clientId) + ' ' + c.court + ' ' + c.type + ' ' + c.status + ' ' + (c.tawkeelNum||'') + ' ' + (c.division||'') + ' ' + (c.notes||'')).toLowerCase();
+    const match = !search || searchText.includes(search);
     const filt=!filter||c.status===filter;
     return match&&filt;
   });
@@ -2029,26 +2033,16 @@ function renderCases(){
 }
 
 // ============================================================
-// DELETE CASE - حذف نهائي للقضية وجميع بياناتها المرتبطة
+// DELETE FUNCTIONS - حذف نهائي مع حفظ في localStorage و GitHub
 // ============================================================
+
 function deleteCase(id){ 
   if(!confirm('⚠️ هل أنت متأكد من حذف هذه القضية نهائياً؟\nسيتم حذف جميع البيانات المرتبطة بها (جلسات، مدفوعات، سجل جلسات، مهام)')) return; 
-  
-  // حذف القضية
   DB.cases = DB.cases.filter(c => c.id !== id);
-  
-  // حذف الجلسات المرتبطة
   DB.sessions = DB.sessions.filter(s => s.caseId !== id);
-  
-  // حذف سجل الجلسات المرتبط
   DB.sessionLogs = DB.sessionLogs.filter(l => l.caseId !== id);
-  
-  // حذف المدفوعات المرتبطة
   DB.payments = DB.payments.filter(p => p.caseId !== id);
-  
-  // حذف المهام المرتبطة
   DB.tasks = DB.tasks.filter(t => t.caseId !== id);
-  
   saveDB(); 
   logActivity('حذف قضية نهائياً'); 
   renderCases(); 
@@ -2096,8 +2090,6 @@ function viewCase(id){
     <div style="margin-bottom:10px;"><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">📅 الجلسات (${caseSessions.length})</div>${caseSessions.map(s=>`<div style="font-size:11px;padding:4px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;">${formatDate(s.date)} ${s.time||''} - ${s.court||'-'}</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>
     <div style="margin-bottom:10px;"><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">📜 سجل الجلسات (${caseLogs.length})</div>${caseLogs.map(l=>`<div style="font-size:11px;padding:6px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;border-right:2px solid var(--gold);">${formatDate(l.date)} - ${l.result} - ${l.what.substring(0,60)}...</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>
     <div><div style="font-size:11px;font-weight:700;color:var(--gold);margin-bottom:6px;">💰 المدفوعات (${casePayments.length})</div>${casePayments.map(p=>`<div style="font-size:11px;padding:4px 8px;background:var(--dark3);border-radius:5px;margin-bottom:4px;">${p.desc} - ${fmt(p.amount)}</div>`).join('')||'<div style="font-size:11px;color:var(--text-muted);">لا توجد</div>'}</div>`;
-  document.getElementById('qrcode').innerHTML='';
-  try{ new QRCode(document.getElementById('qrcode'),{text:`AMG|${c.num}|${tawkeelNum}|${getClientName(c.clientId)}|${c.status}`,width:70,height:70,colorDark:'#C9A84C',colorLight:'#111827'}); }catch(e){}
   openModal('caseDetailModal');
 }
 
@@ -2187,7 +2179,18 @@ function renderClients(){
     </div>`;
   }).join('');
 }
-function deleteClient(id){ if(!confirm('حذف هذا الموكل؟'))return; DB.clients=DB.clients.filter(c=>c.id!==id); saveDB(); renderClients(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteClient(id){ 
+  if(!confirm('حذف هذا الموكل نهائياً؟'))return; 
+  // حذف الموكل
+  DB.clients=DB.clients.filter(c=>c.id!==id);
+  // تحديث القضايا التي كان مرتبط بها - تعيين clientId فارغ
+  DB.cases.forEach(c => { if(c.clientId === id) c.clientId = ''; });
+  saveDB(); 
+  renderClients(); 
+  showToast('✅ تم حذف الموكل', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // STAFF
@@ -2207,6 +2210,7 @@ function addStaff(){
   document.getElementById('staffPhotoData').value='';
   autoSync();
 }
+
 function editStaff(id){
   const s=DB.staff.find(x=>x.id===id); if(!s)return;
   document.getElementById('editStaffId').value=id;
@@ -2226,6 +2230,7 @@ function editStaff(id){
     if(s.photo){ document.getElementById('staffPhotoPreview').innerHTML=`<img src="${s.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`; document.getElementById('staffPhotoData').value=s.photo; }
   },100);
 }
+
 function renderStaff(){
   const grid=document.getElementById('staffGrid');
   const empty=document.getElementById('staffEmpty');
@@ -2257,7 +2262,17 @@ function renderStaff(){
     </div>`;
   }).join('');
 }
-function deleteStaff(id){ if(!confirm('حذف هذا الموظف؟'))return; DB.staff=DB.staff.filter(s=>s.id!==id); saveDB(); renderStaff(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteStaff(id){ 
+  if(!confirm('حذف هذا الموظف نهائياً؟'))return; 
+  DB.staff=DB.staff.filter(s=>s.id!==id); 
+  // تحديث القضايا التي كان مرتبط بها
+  DB.cases.forEach(c => { if(c.lawyerId === id) c.lawyerId = ''; });
+  saveDB(); 
+  renderStaff(); 
+  showToast('✅ تم حذف الموظف', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // ATTENDANCE
@@ -2270,6 +2285,7 @@ function addAttendance(){
   DB.attendance.push({id:genId(),staffId,date,timeIn:document.getElementById('attendTimeIn').value,timeOut:document.getElementById('attendTimeOut').value,status:document.getElementById('attendStatus').value,deduct:+document.getElementById('attendDeduct').value||0,note:document.getElementById('attendNote').value.trim()});
   saveDB(); logActivity('تسجيل حضور'); closeModal('addAttendModal'); renderAttendance(); showToast('تم تسجيل الحضور'); autoSync();
 }
+
 function renderAttendance(){
   const selDate=document.getElementById('attendDate')?.value||new Date().toISOString().split('T')[0];
   const records=DB.attendance.filter(a=>a.date===selDate);
@@ -2301,7 +2317,14 @@ function renderAttendance(){
     </tr>`;
   }).join('');
 }
-function deleteAttend(id){ DB.attendance=DB.attendance.filter(a=>a.id!==id); saveDB(); renderAttendance(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteAttend(id){ 
+  DB.attendance=DB.attendance.filter(a=>a.id!==id); 
+  saveDB(); 
+  renderAttendance(); 
+  showToast('✅ تم حذف سجل الحضور', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // SESSIONS
@@ -2312,6 +2335,7 @@ function addSession(){
   DB.sessions.push({id:genId(),caseId:document.getElementById('sessionCase').value,date,time:document.getElementById('sessionTime').value,court:document.getElementById('sessionCourt').value.trim(),notes:document.getElementById('sessionNotes').value.trim()});
   saveDB(); logActivity('إضافة جلسة'); closeModal('addSessionModal'); renderCalendar(); showToast('تم إضافة الجلسة'); checkSessionAlerts(); autoSync();
 }
+
 function renderCalendar(){
   const months=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
   document.getElementById('calMonthTitle').textContent=months[calDate.getMonth()]+' '+calDate.getFullYear();
@@ -2345,8 +2369,19 @@ function renderCalendar(){
     </div>`;
   }).join(''):'<p style="color:var(--text-muted);font-size:12px;text-align:center;padding:20px;">لا توجد جلسات</p>';
 }
+
 function openWhatsAppSession(caseId){ const c=DB.cases.find(x=>x.id===caseId); if(!c)return; const client=DB.clients.find(x=>x.id===c.clientId); if(!client||!client.phone){ showToast('لا يوجد رقم هاتف للموكل','error'); return; } openWhatsApp(client.name,client.phone,c.num); }
-function deleteSession(id){ if(!confirm('حذف هذه الجلسة؟'))return; DB.sessions=DB.sessions.filter(s=>s.id!==id); saveDB(); renderCalendar(); showToast('تم الحذف','warning'); checkSessionAlerts(); autoSync(); }
+
+function deleteSession(id){ 
+  if(!confirm('حذف هذه الجلسة نهائياً؟'))return; 
+  DB.sessions=DB.sessions.filter(s=>s.id!==id); 
+  saveDB(); 
+  renderCalendar(); 
+  showToast('✅ تم حذف الجلسة', 'warning'); 
+  checkSessionAlerts(); 
+  autoSync(); 
+}
+
 function showDaySessions(ds){ const d=DB.sessions.filter(s=>s.date===ds); if(d.length) showToast(`${d.length} جلسة في ${formatDate(ds)}`,'info'); }
 function prevMonth(){ calDate.setMonth(calDate.getMonth()-1); renderCalendar(); }
 function nextMonth(){ calDate.setMonth(calDate.getMonth()+1); renderCalendar(); }
@@ -2367,6 +2402,7 @@ function addSessionLog(){
   ['sessionLogCourt','sessionLogJudge','sessionLogWhat','sessionLogNotes','sessionLogNext'].forEach(id=>{ const el=document.getElementById(id); if(el)el.value=''; });
   autoSync();
 }
+
 function renderSessionHistory(){
   const filter=document.getElementById('historyFilterCase');
   if(filter){ const cur=filter.value; filter.innerHTML='<option value="">كل القضايا</option>'; DB.cases.forEach(c=>{ const o=document.createElement('option'); o.value=c.id; o.textContent=c.num+' - '+getClientName(c.clientId); filter.appendChild(o); }); filter.value=cur; }
@@ -2396,7 +2432,15 @@ function renderSessionHistory(){
       ${l.notes?`<div style="font-size:11px;color:var(--text-muted);background:rgba(201,168,76,.05);padding:7px 10px;border-radius:7px;margin-top:6px;"><i class="fas fa-sticky-note" style="color:var(--gold);margin-left:5px;"></i>${l.notes}</div>`:''}
     </div>`).join(''):'<div style="text-align:center;padding:40px;color:var(--text-muted);"><i class="fas fa-history" style="font-size:40px;opacity:.2;margin-bottom:12px;display:block;"></i><p>لا توجد سجلات جلسات</p></div>';
 }
-function deleteSessionLog(id){ if(!confirm('حذف هذا السجل؟'))return; DB.sessionLogs=DB.sessionLogs.filter(l=>l.id!==id); saveDB(); renderSessionHistory(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteSessionLog(id){ 
+  if(!confirm('حذف هذا السجل نهائياً؟'))return; 
+  DB.sessionLogs=DB.sessionLogs.filter(l=>l.id!==id); 
+  saveDB(); 
+  renderSessionHistory(); 
+  showToast('✅ تم حذف سجل الجلسة', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // TASKS
@@ -2409,6 +2453,7 @@ function addTask(){
   document.getElementById('taskTitle').value='';
   autoSync();
 }
+
 function renderTasks(){
   const cols={pending:'tasks-pending',inprogress:'tasks-inprogress',done:'tasks-done'};
   const prioColors={عاجلة:'var(--danger)',متوسطة:'var(--warning)',عادية:'var(--success)'};
@@ -2427,8 +2472,18 @@ function renderTasks(){
       </div>`).join(''):`<p style="color:var(--text-muted);font-size:11px;text-align:center;padding:12px;">لا توجد مهام</p>`;
   });
 }
+
 function moveTask(id,newStatus){ const t=DB.tasks.find(x=>x.id===id); if(t){ t.status=newStatus; saveDB(); renderTasks(); autoSync(); } }
-function deleteTask(id){ DB.tasks=DB.tasks.filter(t=>t.id!==id); saveDB(); renderTasks(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteTask(id){ 
+  if(!confirm('حذف هذه المهمة نهائياً؟'))return; 
+  DB.tasks=DB.tasks.filter(t=>t.id!==id); 
+  saveDB(); 
+  renderTasks(); 
+  showToast('✅ تم حذف المهمة', 'warning'); 
+  autoSync(); 
+}
+
 function toggleTask(id){ const t=DB.tasks.find(x=>x.id===id); if(t){ t.status=t.status==='done'?'pending':'done'; saveDB(); renderDashboard(); autoSync(); } }
 
 // ============================================================
@@ -2437,10 +2492,12 @@ function toggleTask(id){ const t=DB.tasks.find(x=>x.id===id); if(t){ t.status=t.
 function addPayment(){
   const client=document.getElementById('payClient').value.trim();
   const amount=+document.getElementById('payAmount').value;
+  const caseId=document.getElementById('payCase').value || '';
   if(!client||!amount){ showToast('الرجاء إدخال الموكل والمبلغ','error'); return; }
-  DB.payments.push({id:genId(),client,caseId:document.getElementById('payCase').value,desc:document.getElementById('payDesc').value.trim(),type:document.getElementById('payType').value,amount,date:document.getElementById('payDate').value,status:document.getElementById('payStatus').value});
+  DB.payments.push({id:genId(),client,caseId,desc:document.getElementById('payDesc').value.trim(),type:document.getElementById('payType').value,amount,date:document.getElementById('payDate').value,status:document.getElementById('payStatus').value});
   saveDB(); logActivity('تسجيل دفعة: '+amount+' ج.م'); closeModal('addPaymentModal'); renderFinance(); showToast('تم تسجيل الدفعة'); autoSync();
 }
+
 function renderFinance(){
   const income=DB.payments.filter(p=>p.type==='إيراد').reduce((a,b)=>a+(+b.amount),0);
   const expense=DB.payments.filter(p=>p.type==='مصروف').reduce((a,b)=>a+(+b.amount),0);
@@ -2490,7 +2547,15 @@ function renderFinance(){
       <td><button onclick="deletePayment('${p.id}')" class="btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
     </tr>`).join('');
 }
-function deletePayment(id){ DB.payments=DB.payments.filter(p=>p.id!==id); saveDB(); renderFinance(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deletePayment(id){ 
+  if(!confirm('حذف هذه الدفعة المالية نهائياً؟'))return; 
+  DB.payments=DB.payments.filter(p=>p.id!==id); 
+  saveDB(); 
+  renderFinance(); 
+  showToast('✅ تم حذف الدفعة', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // PAYROLL
@@ -2502,6 +2567,7 @@ function addSalary(){
   DB.salaries.push({id:genId(),staffId,month,base:+document.getElementById('salaryBase').value||0,bonus:+document.getElementById('salaryBonus').value||0,deduct:+document.getElementById('salaryDeduct').value||0,status:document.getElementById('salaryStatus').value,note:document.getElementById('salaryNote').value.trim()});
   saveDB(); logActivity('صرف راتب'); closeModal('addSalaryModal'); renderPayroll(); showToast('تم صرف الراتب'); autoSync();
 }
+
 function renderPayroll(){
   document.getElementById('totalSalaries').textContent=fmt(DB.salaries.reduce((a,b)=>a+(+b.base||0),0));
   document.getElementById('totalDeductions').textContent=fmt(DB.salaries.reduce((a,b)=>a+(+b.deduct||0),0));
@@ -2525,7 +2591,15 @@ function renderPayroll(){
     </tr>`;
   }).join('');
 }
-function deleteSalary(id){ DB.salaries=DB.salaries.filter(s=>s.id!==id); saveDB(); renderPayroll(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteSalary(id){ 
+  if(!confirm('حذف هذا الراتب نهائياً؟'))return; 
+  DB.salaries=DB.salaries.filter(s=>s.id!==id); 
+  saveDB(); 
+  renderPayroll(); 
+  showToast('✅ تم حذف الراتب', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // DOCUMENTS
@@ -2535,12 +2609,14 @@ function handleFileUpload(event){
   for(const file of files){ DB.documents.push({id:genId(),name:file.name,cat:'أخرى',size:file.size,caseId:'',uploadedAt:new Date().toISOString()}); }
   saveDB(); renderDocs(); showToast('تم رفع '+files.length+' ملف'); autoSync();
 }
+
 function addDoc(){
   const name=document.getElementById('docName').value.trim();
   if(!name){ showToast('الرجاء إدخال الاسم','error'); return; }
   DB.documents.push({id:genId(),name,cat:document.getElementById('docCat').value,caseId:document.getElementById('docCase').value,size:0,uploadedAt:new Date().toISOString()});
   saveDB(); logActivity('رفع مستند: '+name); closeModal('addDocModal'); renderDocs(); showToast('تم إضافة المستند'); autoSync();
 }
+
 function renderDocs(){
   const grid=document.getElementById('docsGrid');
   const empty=document.getElementById('docsEmpty');
@@ -2557,7 +2633,15 @@ function renderDocs(){
       <button onclick="deleteDoc('${d.id}')" class="btn-danger btn-sm" style="margin-top:8px;"><i class="fas fa-trash"></i></button>
     </div>`).join('');
 }
-function deleteDoc(id){ DB.documents=DB.documents.filter(d=>d.id!==id); saveDB(); renderDocs(); showToast('تم الحذف','warning'); autoSync(); }
+
+function deleteDoc(id){ 
+  if(!confirm('حذف هذا المستند نهائياً؟'))return; 
+  DB.documents=DB.documents.filter(d=>d.id!==id); 
+  saveDB(); 
+  renderDocs(); 
+  showToast('✅ تم حذف المستند', 'warning'); 
+  autoSync(); 
+}
 
 // ============================================================
 // SETTINGS
@@ -2605,6 +2689,7 @@ function backupData(){
   const a=document.createElement('a'); a.href=url; a.download=`AMG-backup-${new Date().toISOString().split('T')[0]}.json`; a.click();
   showToast('تم تحميل النسخة الاحتياطية');
 }
+
 function restoreData(event){
   const file=event.target.files[0]; if(!file)return;
   if(!confirm('سيتم استبدال البيانات الحالية. هل أنت متأكد؟'))return;
@@ -2613,6 +2698,7 @@ function restoreData(event){
   reader.readAsText(file);
   event.target.value='';
 }
+
 function exportExcel(){
   const rows=[['رقم القضية','الموكل','رقم التوكيل','النوع','المحكمة','المحامي','الحالة','الأتعاب','المدفوع','المتبقي']];
   DB.cases.forEach(c=>{ const cl=DB.clients.find(x=>x.id===c.clientId); rows.push([c.num,getClientName(c.clientId),cl?.tawkeelNum||'',c.type,c.court,getStaffName(c.lawyerId),c.status,c.fee||0,c.paid||0,(c.fee||0)-(c.paid||0)]); });
@@ -2624,21 +2710,60 @@ function exportExcel(){
   const a=document.createElement('a'); a.href=url; a.download='AMG_Report.csv'; a.click();
   showToast('تم تصدير البيانات');
 }
+
 function clearAllData(){
   if(!confirm('⚠️ سيتم مسح جميع البيانات نهائياً. هل أنت متأكد تماماً؟'))return;
   DB={cases:[],clients:[],staff:[],sessions:[],tasks:[],payments:[],documents:[],attendance:[],salaries:[],settings:{},activityLog:[],sessionLogs:[],version:'6.0'};
   saveDB(); showToast('تم مسح البيانات','warning'); refreshPage(currentPage);
 }
+
 function exportPDF(){ window.print(); }
 
 // ============================================================
-// GLOBAL SEARCH
+// GLOBAL SEARCH - بحث بكل الكلمات
 // ============================================================
 function globalSearchFn(){
   const q=document.getElementById('globalSearch').value.toLowerCase().trim();
   if(!q)return;
-  const found=DB.cases.filter(c=>c.num.toLowerCase().includes(q)||getClientName(c.clientId).toLowerCase().includes(q));
-  if(found.length){ showPage('cases'); setTimeout(()=>{ document.getElementById('caseSearch').value=q; renderCases(); },100); }
+  // البحث في كل الجداول
+  let results = [];
+  
+  // البحث في القضايا
+  DB.cases.forEach(c => {
+    const text = (c.num + ' ' + getClientName(c.clientId) + ' ' + c.court + ' ' + c.type + ' ' + c.status + ' ' + (c.tawkeelNum||'') + ' ' + (c.notes||'')).toLowerCase();
+    if(text.includes(q)) results.push({type:'قضية', ref:c.num, detail:c.type+' - '+c.court, id:c.id, page:'cases'});
+  });
+  
+  // البحث في الموكلين
+  DB.clients.forEach(c => {
+    const text = (c.name + ' ' + (c.phone||'') + ' ' + (c.idNum||'') + ' ' + (c.tawkeelNum||'') + ' ' + (c.notes||'')).toLowerCase();
+    if(text.includes(q)) results.push({type:'موكل', ref:c.name, detail:c.phone||c.idNum||'', id:c.id, page:'clients'});
+  });
+  
+  // البحث في الموظفين
+  DB.staff.forEach(s => {
+    const text = (s.name + ' ' + (s.role||'') + ' ' + (s.phone||'') + ' ' + (s.license||'')).toLowerCase();
+    if(text.includes(q)) results.push({type:'موظف', ref:s.name, detail:s.role||'', id:s.id, page:'staff'});
+  });
+  
+  // البحث في الجلسات
+  DB.sessions.forEach(s => {
+    const caseName = getCaseName(s.caseId);
+    const text = (caseName + ' ' + (s.court||'') + ' ' + (s.notes||'') + ' ' + (s.date||'')).toLowerCase();
+    if(text.includes(q)) results.push({type:'جلسة', ref:caseName, detail:formatDate(s.date)+' - '+s.court, id:s.id, page:'sessions'});
+  });
+  
+  if(results.length){
+    // عرض النتائج في توست
+    const msg = results.slice(0,5).map(r => `${r.type}: ${r.ref} (${r.detail})`).join('\n');
+    if(results.length > 5) showToast(`🔍 ${results.length} نتيجة\n${msg}\n... عرض ${results.length} نتيجة`, 'info');
+    else showToast(`🔍 ${results.length} نتيجة\n${msg}`, 'info');
+    
+    // انتقل إلى أول نتيجة
+    if(results[0]) showPage(results[0].page);
+  } else {
+    showToast('🔍 لا توجد نتائج بحث', 'info');
+  }
 }
 
 // ============================================================
