@@ -1,1 +1,26 @@
-
+{
+  "cases": [],
+  "clients": [],
+  "staff": [],
+  "sessions": [],
+  "tasks": [],
+  "payments": [],
+  "documents": [],
+  "attendance": [],
+  "salaries": [],
+  "settings": {
+    "officeName": "ghhhhhhhhhh",
+    "officeManager": "شصثثب",
+    "officeAddress": "",
+    "officePhone": "",
+    "officeEmail": ""
+  },
+  "activityLog": [
+    {
+      "action": "حفظ إعدادات",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١١:٤٨:٠٧ ص"
+    }
+  ],
+  "sessionLogs": [],
+  "version": "6.0"
+}
