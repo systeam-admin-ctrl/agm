@@ -118,15 +118,17 @@
     }
   ],
   "salaries": [],
-  "settings": {},
+  "settings": {
+    "officeName": "AMG للمحاماة والاستشارات القانونية",
+    "officeManager": "مصطفى محمد أباظة",
+    "officeAddress": "",
+    "officePhone": "",
+    "officeEmail": ""
+  },
   "activityLog": [
     {
-      "action": "تعديل موظف: esla",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٣٠:٢٦ م"
-    },
-    {
-      "action": "مزامنة مع GitHub",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٠:٢٩:٥٢ م"
+      "action": "حفظ إعدادات",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١١:٤٩:٥٨ م"
     }
   ],
   "sessionLogs": [],
