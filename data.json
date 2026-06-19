@@ -1,5 +1,23 @@
 {
-  "cases": [],
+  "cases": [
+    {
+      "id": "_epn0ei7ssmqlcgml0",
+      "num": "2026-456",
+      "type": "مدني",
+      "clientId": "_0al6o2f7umqlcdhtc",
+      "lawyerId": "_rjkk49hk7mqlc6pch",
+      "court": "جنوب",
+      "division": "شرق",
+      "date": "2026-06-22",
+      "status": "نشطة",
+      "notes": "",
+      "fee": 7500,
+      "paid": 0,
+      "tawkeelNum": "2026-1097",
+      "archived": false,
+      "createdAt": "2026-06-19T19:51:11.700Z"
+    }
+  ],
   "clients": [
     {
       "id": "_0al6o2f7umqlcdhtc",
@@ -40,22 +58,18 @@
   "settings": {
     "officeName": "AMG للمحاماة والاستشارات القانونية",
     "officeManager": "مصطفى محمد أباظة",
-    "officeAddress": "الشرقيه - المنتزه - امام المحكمه (جنوب)",
-    "officePhone": "+201090431209",
+    "officeAddress": "",
+    "officePhone": "",
     "officeEmail": ""
   },
   "activityLog": [
     {
-      "action": "إضافة موكل: محمود محمد",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٤٨:٤٥ م"
+      "action": "إضافة قضية: 2026-456",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٥١:١١ م"
     },
     {
-      "action": "مزامنة مع GitHub",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٣٨:٢٤ م"
-    },
-    {
-      "action": "حفظ إعدادات",
-      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٣٨:٢٠ م"
+      "action": "إضافة موظف: خالد شريف",
+      "time": "١٩‏/٦‏/٢٠٢٦، ١٢:٤٣:٢٨ م"
     }
   ],
   "sessionLogs": [],
