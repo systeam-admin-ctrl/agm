@@ -1,0 +1,101 @@
+{
+  "cases": [],
+  "clients": [],
+  "staff": [
+    {
+      "id": "_agdlss3wbmqm2bnbu",
+      "name": "محمد",
+      "role": "محامي",
+      "spec": "قانون مدني",
+      "license": "",
+      "phone": "",
+      "email": "",
+      "salary": 0,
+      "joinDate": "",
+      "notes": "",
+      "photo": ""
+    },
+    {
+      "id": "_vxc936hz2mqm2gu9e",
+      "name": "اسلام",
+      "role": "محامي",
+      "spec": "قانون مدني",
+      "license": "",
+      "phone": "",
+      "email": "",
+      "salary": 0,
+      "joinDate": "",
+      "notes": "",
+      "photo": ""
+    }
+  ],
+  "sessions": [],
+  "tasks": [],
+  "payments": [],
+  "documents": [],
+  "attendance": [],
+  "salaries": [],
+  "settings": {
+    "officeName": "AMG للمحاماة والاستشارات القانونية",
+    "officeManager": "مصطفى محمد أباظة",
+    "officeAddress": "",
+    "officePhone": "",
+    "officeEmail": ""
+  },
+  "activityLog": [
+    {
+      "action": "حفظ إعدادات",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٠:٤٨ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٠:٣٩ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٠:٣٤ ص"
+    },
+    {
+      "action": "حفظ إعدادات",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٠:٠٧ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٠:٠٦ ص"
+    },
+    {
+      "action": "حفظ إعدادات",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٠:٠١ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٥٩:٥٧ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٥٩:١٦ ص"
+    },
+    {
+      "action": "إضافة موظف: اسلام",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٥٩:١١ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٥٨:٠٩ ص"
+    },
+    {
+      "action": "حفظ إعدادات",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٥٨:٠٥ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٤٦:٣٨ ص"
+    },
+    {
+      "action": "حفظ إعدادات",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١٠:٤٦:٣٤ ص"
+    }
+  ],
+  "sessionLogs": [],
+  "version": "6.0"
+}
