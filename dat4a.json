@@ -8,8 +8,23 @@
   "documents": [],
   "attendance": [],
   "salaries": [],
-  "settings": {},
-  "activityLog": [],
+  "settings": {
+    "officeName": "AMG للمحاماة والاستشارات القانونية",
+    "officeManager": "مصطفى محمد أباظة",
+    "officeAddress": "",
+    "officePhone": "",
+    "officeEmail": ""
+  },
+  "activityLog": [
+    {
+      "action": "حفظ إعدادات",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٧:٣٨ ص"
+    },
+    {
+      "action": "مزامنة مع GitHub",
+      "time": "٢٠‏/٦‏/٢٠٢٦، ١١:٠٧:٢٩ ص"
+    }
+  ],
   "sessionLogs": [],
   "version": "6.0"
 }
